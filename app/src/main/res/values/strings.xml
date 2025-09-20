@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FootyXApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_leagues">Leagues</string>
+    <string name="title_favourites">Favourites</string>
+    <string name="title_match">Match</string>
+    <string name="title_player">Player</string>
+    <string name="title_team">Team</string>
+</resources>
