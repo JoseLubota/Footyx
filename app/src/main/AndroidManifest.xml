@@ -13,7 +13,7 @@
         android:theme="@style/Theme.FootyXApp"
         tools:targetApi="31">
         <activity
-            android:name=".Leaderboard"
+            android:name=".LeaderboardActivity"
             android:exported="false" />
         <activity
             android:name=".SettingsActivity"

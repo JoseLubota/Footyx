@@ -1,5 +1,6 @@
 package com.example.footyxapp
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -23,5 +24,22 @@ class MainActivity : AppCompatActivity() {
         val navController: NavController = navHostFragment.navController
 
         binding.navView.setupWithNavController(navController)
+        
+        // Set up click listeners for toolbar buttons
+        setupToolbarButtons()
+    }
+    
+    private fun setupToolbarButtons() {
+        // Leaderboard button click listener
+        binding.buttonLeaderboard.setOnClickListener {
+            val intent = Intent(this, LeaderboardActivity::class.java)
+            startActivity(intent)
+        }
+        
+        // Settings button click listener
+        binding.buttonSettings.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

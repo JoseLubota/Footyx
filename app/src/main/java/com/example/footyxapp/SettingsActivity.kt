@@ -2,25 +2,27 @@ package com.example.footyxapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.preference.PreferenceFragmentCompat
+import com.example.footyxapp.databinding.SettingsActivityBinding
 
 class SettingsActivity : AppCompatActivity() {
 
+    private lateinit var binding: SettingsActivityBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.settings_activity)
-        if (savedInstanceState == null) {
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.settings, SettingsFragment())
-                .commit()
+        
+        binding = SettingsActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        
+        // Hide the default action bar since we have our own header
+        supportActionBar?.hide()
+        
+        // Set up back button click listener
+        binding.btnBack.setOnClickListener {
+            finish() // Close this activity and return to the previous one
         }
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-    }
-
-    class SettingsFragment : PreferenceFragmentCompat() {
-        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-            setPreferencesFromResource(R.xml.root_preferences, rootKey)
-        }
+        
+        // TODO: Add click listeners for other UI elements
+        // This is just the basic setup - no logic implemented yet
     }
 }

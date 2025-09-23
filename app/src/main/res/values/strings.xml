@@ -6,7 +6,23 @@
     <string name="title_match">Match</string>
     <string name="title_player">Player</string>
     <string name="title_team">Team</string>
-    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Settings Page Strings -->
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_match_reminders">Match Reminders</string>
+    <string name="settings_goals_alerts">Goals Alerts</string>
+    <string name="settings_final_score_alerts">Final Score Alerts</string>
+    <string name="settings_preferences">Preferences</string>
+    <string name="settings_favorite_team">Favorite Team</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_english">English</string>
+    <string name="settings_afrikaans">Afrikaans</string>
+    <string name="settings_security">Security</string>
+    <string name="settings_biometric_auth">Biometric Authentication</string>
+    <string name="settings_biometric_description">Use fingerprint or face unlock</string>
+    <string name="settings_logout">Log Out</string>
+    <string name="settings_back">Back</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
