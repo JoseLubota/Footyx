@@ -174,12 +174,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
-                    android:text="Match Statistics"
+                    android:text="@string/match_statistics_title"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <!-- Possession -->
+                <!-- Shots on Goal -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -187,36 +187,36 @@
                     android:layout_marginBottom="8dp">
 
                     <TextView
-                        android:id="@+id/home_possession"
+                        android:id="@+id/home_shots_on_goal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         android:gravity="start"
-                        tools:text="60%" />
+                        tools:text="2" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
-                        android:text="Possession"
+                        android:text="@string/stat_shots_on_goal"
                         android:textColor="#AFAFAF"
                         android:textSize="16sp"
                         android:gravity="center"/>
 
                     <TextView
-                        android:id="@+id/away_possession"
+                        android:id="@+id/away_shots_on_goal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         android:gravity="end"
-                        tools:text="40%" />
+                        tools:text="10" />
                 </LinearLayout>
 
-                <!-- Shots -->
+                <!-- Shots off Goal -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -224,26 +224,26 @@
                     android:layout_marginBottom="8dp">
 
                     <TextView
-                        android:id="@+id/home_shots"
+                        android:id="@+id/home_shots_off_goal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         android:gravity="start"
-                        tools:text="15" />
+                        tools:text="4" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
-                        android:text="Shots"
+                        android:text="@string/stat_shots_off_goal"
                         android:textColor="#AFAFAF"
                         android:textSize="16sp"
                         android:gravity="center"/>
 
                     <TextView
-                        android:id="@+id/away_shots"
+                        android:id="@+id/away_shots_off_goal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -253,7 +253,7 @@
                         tools:text="8" />
                 </LinearLayout>
 
-                <!-- Corners Won (Assuming this is what "Won" refers to in a match context) -->
+                <!-- Total Shots -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -261,36 +261,147 @@
                     android:layout_marginBottom="8dp">
 
                     <TextView
-                        android:id="@+id/home_corners_won"
+                        android:id="@+id/home_total_shots"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         android:gravity="start"
-                        tools:text="7" />
+                        tools:text="8" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
-                        android:text="Corners Won"
+                        android:text="@string/stat_total_shots"
                         android:textColor="#AFAFAF"
                         android:textSize="16sp"
                         android:gravity="center"/>
 
                     <TextView
-                        android:id="@+id/away_corners_won"
+                        android:id="@+id/away_total_shots"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         android:gravity="end"
-                        tools:text="3" />
+                        tools:text="28" />
                 </LinearLayout>
 
-                <!-- Fouls Committed (Assuming this is what "Lost" might refer to, or you can clarify) -->
+                <!-- Blocked Shots -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/home_blocked_shots"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:gravity="start"
+                        tools:text="2" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:text="@string/stat_blocked_shots"
+                        android:textColor="#AFAFAF"
+                        android:textSize="16sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/away_blocked_shots"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:gravity="end"
+                        tools:text="10" />
+                </LinearLayout>
+
+                <!-- Shots insidebox -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/home_shots_insidebox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:gravity="start"
+                        tools:text="6" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:text="@string/stat_shots_insidebox"
+                        android:textColor="#AFAFAF"
+                        android:textSize="16sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/away_shots_insidebox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:gravity="end"
+                        tools:text="22" />
+                </LinearLayout>
+
+                <!-- Shots outsidebox -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/home_shots_outsidebox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:gravity="start"
+                        tools:text="2" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:text="@string/stat_shots_outsidebox"
+                        android:textColor="#AFAFAF"
+                        android:textSize="16sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/away_shots_outsidebox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:gravity="end"
+                        tools:text="6" />
+                </LinearLayout>
+
+                <!-- Fouls -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -305,13 +416,13 @@
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         android:gravity="start"
-                        tools:text="12" />
+                        tools:text="15" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
-                        android:text="Fouls Committed"
+                        android:text="@string/stat_fouls"
                         android:textColor="#AFAFAF"
                         android:textSize="16sp"
                         android:gravity="center"/>
@@ -324,11 +435,47 @@
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         android:gravity="end"
+                        tools:text="14" />
+                </LinearLayout>
+
+                <!-- Corner Kicks -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/home_corner_kicks"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:gravity="start"
                         tools:text="9" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:text="@string/stat_corner_kicks"
+                        android:textColor="#AFAFAF"
+                        android:textSize="16sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/away_corner_kicks"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:gravity="end"
+                        tools:text="13" />
                 </LinearLayout>
 
-                <!-- Goals per match (This is typically an average, might be tricky for a single match context. Displaying total goals might be more direct) -->
-                <!-- For now, I'll interpret "Goals per match" as simply "Goals" for this single match -->
+                <!-- Offsides -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -336,36 +483,36 @@
                     android:layout_marginBottom="8dp">
 
                     <TextView
-                        android:id="@+id/home_goals"
+                        android:id="@+id/home_offsides"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         android:gravity="start"
+                        tools:text="4" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:text="@string/stat_offsides"
+                        android:textColor="#AFAFAF"
+                        android:textSize="16sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/away_offsides"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:gravity="end"
                         tools:text="2" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.5"
-                        android:text="Goals"
-                        android:textColor="#AFAFAF"
-                        android:textSize="16sp"
-                        android:gravity="center"/>
-
-                    <TextView
-                        android:id="@+id/away_goals"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp"
-                        android:gravity="end"
-                        tools:text="1" />
                 </LinearLayout>
 
-                <!-- Injuries -->
+                <!-- Ball Possession -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -373,107 +520,33 @@
                     android:layout_marginBottom="8dp">
 
                     <TextView
-                        android:id="@+id/home_injuries"
+                        android:id="@+id/home_ball_possession"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         android:gravity="start"
-                        tools:text="0" />
+                        tools:text="28%" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
-                        android:text="Injuries"
+                        android:text="@string/stat_ball_possession"
                         android:textColor="#AFAFAF"
                         android:textSize="16sp"
                         android:gravity="center"/>
 
                     <TextView
-                        android:id="@+id/away_injuries"
+                        android:id="@+id/away_ball_possession"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         android:gravity="end"
-                        tools:text="1" />
-                </LinearLayout>
-
-                <!-- Passes -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="8dp">
-
-                    <TextView
-                        android:id="@+id/home_passes"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp"
-                        android:gravity="start"
-                        tools:text="450" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.5"
-                        android:text="Passes"
-                        android:textColor="#AFAFAF"
-                        android:textSize="16sp"
-                        android:gravity="center"/>
-
-                    <TextView
-                        android:id="@+id/away_passes"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp"
-                        android:gravity="end"
-                        tools:text="320" />
-                </LinearLayout>
-
-                <!-- Red Cards -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="8dp">
-
-                    <TextView
-                        android:id="@+id/home_red_cards"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp"
-                        android:gravity="start"
-                        tools:text="0" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.5"
-                        android:text="Red Cards"
-                        android:textColor="#AFAFAF"
-                        android:textSize="16sp"
-                        android:gravity="center"/>
-
-                    <TextView
-                        android:id="@+id/away_red_cards"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp"
-                        android:gravity="end"
-                        tools:text="0" />
+                        tools:text="72%" />
                 </LinearLayout>
 
                 <!-- Yellow Cards -->
@@ -497,7 +570,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
-                        android:text="Yellow Cards"
+                        android:text="@string/stat_yellow_cards"
                         android:textColor="#AFAFAF"
                         android:textSize="16sp"
                         android:gravity="center"/>
@@ -510,20 +583,196 @@
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         android:gravity="end"
-                        tools:text="3" />
+                        tools:text="1" />
                 </LinearLayout>
 
-                <!-- Add more stats or an event timeline (e.g., using a RecyclerView) here -->
-                <TextView
+                <!-- Red Cards -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingTop="16dp"
-                    android:text="[More match details or events can go here]"
-                    android:textColor="#AFAFAF" />
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
 
+                    <TextView
+                        android:id="@+id/home_red_cards"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:gravity="start"
+                        tools:text="1" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:text="@string/stat_red_cards"
+                        android:textColor="#AFAFAF"
+                        android:textSize="16sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/away_red_cards"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:gravity="end"
+                        tools:text="0" />
+                </LinearLayout>
+
+                <!-- Goalkeeper Saves -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/home_goalkeeper_saves"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:gravity="start"
+                        tools:text="10" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:text="@string/stat_goalkeeper_saves"
+                        android:textColor="#AFAFAF"
+                        android:textSize="16sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/away_goalkeeper_saves"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:gravity="end"
+                        tools:text="1" />
+                </LinearLayout>
+
+                <!-- Total passes -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/home_total_passes"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:gravity="start"
+                        tools:text="369" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:text="@string/stat_total_passes"
+                        android:textColor="#AFAFAF"
+                        android:textSize="16sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/away_total_passes"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:gravity="end"
+                        tools:text="970" />
+                </LinearLayout>
+
+                <!-- Passes accurate -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/home_passes_accurate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:gravity="start"
+                        tools:text="261" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:text="@string/stat_passes_accurate"
+                        android:textColor="#AFAFAF"
+                        android:textSize="16sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/away_passes_accurate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:gravity="end"
+                        tools:text="881" />
+                </LinearLayout>
+
+                <!-- Passes % -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp"> <!-- Consider removing marginBottom for the last item -->
+
+                    <TextView
+                        android:id="@+id/home_passes_percentage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:gravity="start"
+                        tools:text="71%" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:text="@string/stat_passes_percentage"
+                        android:textColor="#AFAFAF"
+                        android:textSize="16sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/away_passes_percentage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:gravity="end"
+                        tools:text="91%" />
+                </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
 
         <!-- Previous Games Section -->
         <androidx.cardview.widget.CardView
@@ -807,6 +1056,232 @@
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
+        <!-- Events Section -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/events_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/events_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/events_title"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <!-- Stadium Name -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stadium_name_label"
+                        android:textColor="#AFAFAF"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/text_stadium_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        tools:text="Signal Iduna Park" />
+                </LinearLayout>
+
+                <!-- Referee -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/referee_label"
+                        android:textColor="#AFAFAF"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/text_referee_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        tools:text="Dr. Felix Brych" />
+                </LinearLayout>
+
+                <!-- Event List (Ideally a RecyclerView) -->
+                <!-- For now, placeholder LinearLayouts for events -->
+
+                <!-- Event Period Header: FIRST HALF -->
+                <TextView
+                    android:id="@+id/event_header_first_half"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:text="@string/event_period_first_half_placeholder"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="FIRST HALF (0 - 1)" />
+
+                <!-- Placeholder Event 1 (Substitution - Home) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/event_1_minute"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#AFAFAF"
+                        android:textSize="14sp"
+                        tools:text="23'" />
+                    <!-- No player number in this specific example from image, but you could add one -->
+                    <TextView
+                        android:id="@+id/event_1_player_action"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        tools:text="B. Embolo (Out), R. Vargas (In)" /> <!-- Simplified, no arrows -->
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#303030" />
+
+
+                <!-- Placeholder Event 2 (Goal - Away) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp"
+                    android:gravity="center_vertical|end"> <!-- Aligned to end for away team event -->
+
+                    <TextView
+                        android:id="@+id/event_2_player_action"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="end"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        tools:text="D. Zakaria (Goal)" />
+                    <TextView
+                        android:id="@+id/event_2_minute"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:textColor="#AFAFAF"
+                        android:textSize="14sp"
+                        tools:text="8'" />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#303030" />
+
+
+                <!-- Event Period Header: SECOND HALF -->
+                <TextView
+                    android:id="@+id/event_header_second_half"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:text="@string/event_period_second_half_placeholder"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="SECOND HALF (1 - 1)" />
+
+
+                <!-- Placeholder Event 3 (Yellow Card - Home) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/event_3_minute"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#AFAFAF"
+                        android:textSize="14sp"
+                        tools:text="67'" />
+                    <TextView
+                        android:id="@+id/event_3_player_action"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        tools:text="S. Widmer (Yellow Card - Roughing)" />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#303030" />
+
+
+                <!-- Add more placeholder events or a "No events to show" TextView -->
+                <TextView
+                    android:id="@+id/no_events_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:text="@string/no_events_placeholder"
+                    android:textColor="#AFAFAF"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    tools:visibility="visible"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
 
         <!-- View Team Section -->
         <androidx.cardview.widget.CardView

@@ -23,6 +23,25 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
 
+    <!-- Match stats -->
+    <string name="match_statistics_title">Match Statistics</string>
+    <string name="stat_shots_on_goal">Shots on Goal</string>
+    <string name="stat_shots_off_goal">Shots off Goal</string>
+    <string name="stat_total_shots">Total Shots</string>
+    <string name="stat_blocked_shots">Blocked Shots</string>
+    <string name="stat_shots_insidebox">Shots insidebox</string>
+    <string name="stat_shots_outsidebox">Shots outsidebox</string>
+    <string name="stat_fouls">Fouls</string> <!-- Assuming "Fouls" from image, was "Fouls Committed" -->
+    <string name="stat_corner_kicks">Corner Kicks</string>
+    <string name="stat_offsides">Offsides</string>
+    <string name="stat_ball_possession">Ball Possession</string> <!-- Was "Possession" -->
+    <string name="stat_yellow_cards">Yellow Cards</string> <!-- Already exists, ensure it's the same -->
+    <string name="stat_red_cards">Red Cards</string> <!-- Already exists, ensure it's the same -->
+    <string name="stat_goalkeeper_saves">Goalkeeper Saves</string>
+    <string name="stat_total_passes">Total passes</string> <!-- Was "Passes" -->
+    <string name="stat_passes_accurate">Passes accurate</string>
+    <string name="stat_passes_percentage">Passes %</string>
+
     <!-- Match Details -->
     <string name="previous_games_title">Previous Games</string>
     <string name="no_previous_games">No previous encounters found.</string>
@@ -38,6 +57,17 @@
     <string name="view_team_title">View Team</string>
     <string name="home_team_logo_desc">Home team logo</string>
     <string name="away_team_logo_desc">Away team logo</string>
+
+    <!-- match events -->
+    <string name="events_title">Events</string>
+    <string name="stadium_name_label">Stadium:</string>
+    <string name="referee_label">Referee:</string>
+    <string name="event_period_first_half_placeholder">FIRST HALF</string>
+    <string name="event_period_second_half_placeholder">SECOND HALF</string>
+    <string name="event_period_extra_time_placeholder">EXTRA TIME</string>
+    <!-- Add more periods if needed like "PENALTIES" -->
+    <string name="no_events_placeholder">No match events to display yet.</string>
+
 
 
 </resources>
