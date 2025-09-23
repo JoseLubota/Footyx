@@ -22,4 +22,22 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+    <!-- Match Details -->
+    <string name="previous_games_title">Previous Games</string>
+    <string name="no_previous_games">No previous encounters found.</string>
+
+    <!-- Match Winning Odds -->
+    <string name="winning_odds_title">Winning Odds</string>
+    <string name="odd_win_for_home">Home Win</string>
+    <string name="odd_draw">Draw</string>
+    <string name="odd_win_for_away">Away Win</string>
+    <string name="odds_disclaimer_placeholder">Odds are for informational purposes only. Source: ExampleBookie</string>
+
+    <!-- Redirect to TEAM from Match -->
+    <string name="view_team_title">View Team</string>
+    <string name="home_team_logo_desc">Home team logo</string>
+    <string name="away_team_logo_desc">Away team logo</string>
+
+
 </resources>
