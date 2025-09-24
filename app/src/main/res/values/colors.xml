@@ -10,4 +10,7 @@
 
     <color name="white_FootyX">#BCFFFFFF</color>
     <color name="black_FootyX">#F2242424</color>
+
+    <color name="live_match_red">#FF0000</color> <!-- Or a nicer shade of red -->
+
 </resources>
