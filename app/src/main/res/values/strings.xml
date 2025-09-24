@@ -68,7 +68,19 @@
     <!-- Add more periods if needed like "PENALTIES" -->
     <string name="no_events_placeholder">No match events to display yet.</string>
 
+    <!-- fragment_home UI upcoming fixtures -->
+    <string name="home_upcoming_fixtures_title">Upcoming Fixtures</string>
+    <string name="home_no_upcoming_fixtures">No upcoming fixtures to display.</string>
 
+    <!-- fragment_home UI live -->
+    <string name="home_live_matches_title">Live Matches</string>
+    <string name="home_no_live_matches">No matches are currently live.</string>
 
+    <!-- fragment_home UI transfers-->
+    <string name="home_new_transfers_title">New Transfers</string>
+    <string name="home_no_new_transfers">No recent transfers to display.</string>
+    <string name="transfer_from_team_logo_desc">Transfer from team logo</string>
+    <string name="transfer_to_team_logo_desc">Transfer to team logo</string>
+    <string name="player_photo_desc">Player photo</string>
 
 </resources>
