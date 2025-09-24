@@ -1057,6 +1057,7 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+
         <!-- Events Section -->
         <androidx.cardview.widget.CardView
             android:id="@+id/events_card"
@@ -1135,138 +1136,18 @@
                         tools:text="Dr. Felix Brych" />
                 </LinearLayout>
 
-                <!-- Event List (Ideally a RecyclerView) -->
-                <!-- For now, placeholder LinearLayouts for events -->
-
-                <!-- Event Period Header: FIRST HALF -->
-                <TextView
-                    android:id="@+id/event_header_first_half"
+                <!-- RecyclerView for Match Events -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_events"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:gravity="center"
-                    android:text="@string/event_period_first_half_placeholder"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    tools:text="FIRST HALF (0 - 1)" />
-
-                <!-- Placeholder Event 1 (Substitution - Home) -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="6dp"
-                    android:paddingBottom="6dp"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/event_1_minute"
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:textColor="#AFAFAF"
-                        android:textSize="14sp"
-                        tools:text="23'" />
-                    <!-- No player number in this specific example from image, but you could add one -->
-                    <TextView
-                        android:id="@+id/event_1_player_action"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="8dp"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp"
-                        tools:text="B. Embolo (Out), R. Vargas (In)" /> <!-- Simplified, no arrows -->
-                </LinearLayout>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#303030" />
+                    android:minHeight="100dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_match_event"
+                    tools:itemCount="5" />
 
 
-                <!-- Placeholder Event 2 (Goal - Away) -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="6dp"
-                    android:paddingBottom="6dp"
-                    android:gravity="center_vertical|end"> <!-- Aligned to end for away team event -->
-
-                    <TextView
-                        android:id="@+id/event_2_player_action"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="8dp"
-                        android:gravity="end"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp"
-                        tools:text="D. Zakaria (Goal)" />
-                    <TextView
-                        android:id="@+id/event_2_minute"
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:textColor="#AFAFAF"
-                        android:textSize="14sp"
-                        tools:text="8'" />
-                </LinearLayout>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#303030" />
-
-
-                <!-- Event Period Header: SECOND HALF -->
-                <TextView
-                    android:id="@+id/event_header_second_half"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:gravity="center"
-                    android:text="@string/event_period_second_half_placeholder"
-                    android:textColor="@android:color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    tools:text="SECOND HALF (1 - 1)" />
-
-
-                <!-- Placeholder Event 3 (Yellow Card - Home) -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="6dp"
-                    android:paddingBottom="6dp"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/event_3_minute"
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:textColor="#AFAFAF"
-                        android:textSize="14sp"
-                        tools:text="67'" />
-                    <TextView
-                        android:id="@+id/event_3_player_action"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="8dp"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp"
-                        tools:text="S. Widmer (Yellow Card - Roughing)" />
-                </LinearLayout>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#303030" />
-
-
-                <!-- Add more placeholder events or a "No events to show" TextView -->
+                <!-- Placeholder for if no events exist (can be controlled by code with RecyclerView's empty state) -->
                 <TextView
                     android:id="@+id/no_events_text"
                     android:layout_width="match_parent"
@@ -1281,7 +1162,6 @@
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
 
         <!-- View Team Section -->
         <androidx.cardview.widget.CardView

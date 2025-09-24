@@ -1,0 +1,27 @@
+<!-- res/layout/item_match_event.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/item_event_minute"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:textColor="#AFAFAF"
+        android:textSize="14sp"
+        tools:text="75'" />
+
+    <TextView
+        android:id="@+id/item_event_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="8dp"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        tools:text="Player Name (Event Type - Detail)" />
+</LinearLayout>
+    
