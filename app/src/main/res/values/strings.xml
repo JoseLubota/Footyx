@@ -99,4 +99,12 @@
     <string name="transfer_to_team_logo_desc">Transfer to team logo</string>
     <string name="player_photo_desc">Player photo</string>
 
+    <!-- Login Page Strings -->
+
+    <string name="login_welcome">Welcome Back !</string>
+    <string name="login_info">Get news and statistics of your favourite teams now</string>
+    <string name="login_register_bttn">New User ? Sign Up Here</string>
+    <string name="login_sign_in_bttn">Sign In</string>
+
+
 </resources>
