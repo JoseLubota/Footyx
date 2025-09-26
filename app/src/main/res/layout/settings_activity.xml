@@ -203,6 +203,7 @@
 
             <!-- Modify Favorite Team -->
             <LinearLayout
+                android:id="@+id/layout_favorite_team"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"

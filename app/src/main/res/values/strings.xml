@@ -115,4 +115,15 @@
     <string name="splash_welcome">Welcome to FootyX</string>
     <string name="splash_tagline">Your ultimate football companion</string>
 
+    <!-- Favorites Page Strings -->
+    <string name="favorites_title">Favorites</string>
+    <string name="favorites_teams_section">Favorite Teams</string>
+    <string name="favorites_players_section">Favorite Players</string>
+    <string name="favorites_add_team">Add Team</string>
+    <string name="favorites_add_player">Add Player</string>
+    <string name="favorites_no_teams">No favorite teams added yet</string>
+    <string name="favorites_no_players">No favorite players added yet</string>
+    <string name="favorites_search_hint">Search teams or players...</string>
+    <string name="favorites_back">Back</string>
+
 </resources>
