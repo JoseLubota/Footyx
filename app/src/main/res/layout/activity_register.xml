@@ -5,10 +5,10 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
     <ImageView
-        android:id="@+id/background_image2"
+        android:id="@+id/background_image3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
@@ -29,7 +29,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="15dp"
             android:layout_marginRight="30dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="15dp"
             android:background="@color/black_FootyX"
             android:paddingBottom="20dp"
             app:cardBackgroundColor="@color/black_FootyX"
@@ -37,11 +37,11 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/login_logo"
+                    android:id="@+id/register_logo"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_gravity="center"
@@ -49,16 +49,16 @@
                     app:srcCompat="@drawable/footyx_logo" />
 
                 <TextView
-                    android:id="@+id/login_welcome"
+                    android:id="@+id/register_welcome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/login_welcome"
+                    android:text="@string/register_welcome"
                     android:textAlignment="center"
                     android:textColor="@color/white_FootyX"
                     android:textSize="32sp" />
 
                 <TextView
-                    android:id="@+id/login_info"
+                    android:id="@+id/register_infos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
@@ -69,21 +69,34 @@
                     android:textSize="15sp" />
 
                 <EditText
-                    android:id="@+id/login_username"
+                    android:id="@+id/register_username"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="20dp"
                     android:background="@drawable/white_background"
-                    android:ems="20"
+                    android:ems="10"
                     android:hint="Username"
                     android:inputType="text"
-                    android:paddingLeft="20dp"
-                    android:textAlignment="textStart" />
+                    android:paddingStart="20dp"
+                    tools:ignore="RtlSymmetry" />
 
                 <EditText
-                    android:id="@+id/login_password"
+                    android:id="@+id/register_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/white_background"
+                    android:ems="10"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="20dp" />
+
+                <EditText
+                    android:id="@+id/register_password"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginLeft="20dp"
@@ -92,19 +105,23 @@
                     android:background="@drawable/white_background"
                     android:ems="10"
                     android:hint="Password"
-                    android:inputType="text|textPassword"
-                    android:paddingLeft="20dp" />
+                    android:inputType="textPassword"
+                    android:paddingStart="20dp" />
 
-                <Button
-                    android:id="@+id/login_register_bttn"
+                <EditText
+                    android:id="@+id/register_confirm_password"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="70dp"
-                    android:layout_marginRight="70dp"
-                    android:layout_marginBottom="20dp"
-                    android:background="#00FFFFFF"
-                    android:text="@string/login_register_bttn"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="40dp"
+                    android:background="@drawable/white_background"
+
+                    android:ems="10"
+                    android:hint="Confirm Password"
+                    android:inputType="textPassword"
+                    android:paddingStart="20dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -118,11 +135,11 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/login_sign_in_bttn"
+                android:id="@+id/register_sign_up_bttn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#00FFFFFF"
-                android:text="@string/login_sign_in_bttn"
+                android:text="@string/register_sign_up_bttn"
                 android:textColor="@color/white_FootyX" />
         </LinearLayout>
 
@@ -131,18 +148,17 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <View
-                android:id="@+id/divider"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="5dp"
-                android:layout_weight="1"
-                android:background="@color/black_FootyX" />
+        <View
+                android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@color/black_FootyX" />
 
             <TextView
-                android:id="@+id/login_OR"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="OR"
@@ -152,7 +168,6 @@
                 android:textStyle="bold" />
 
             <View
-                android:id="@+id/divider2"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_gravity="center_vertical"
@@ -163,13 +178,13 @@
         </LinearLayout>
 
         <ImageButton
-            android:id="@+id/login_google_sign_in_bttn"
+            android:id="@+id/register_google_sign_up_bttn"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
+            android:layout_weight="1"
             android:background="#00FFFFFF"
-            tools:srcCompat="@drawable/google_sign_in" />
+            tools:srcCompat="@drawable/google_sign_up" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

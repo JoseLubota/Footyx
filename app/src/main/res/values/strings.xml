@@ -100,11 +100,14 @@
     <string name="player_photo_desc">Player photo</string>
 
     <!-- Login Page Strings -->
-
     <string name="login_welcome">Welcome Back !</string>
     <string name="login_info">Get news and statistics of your favourite teams now</string>
     <string name="login_register_bttn">New User ? Sign Up Here</string>
     <string name="login_sign_in_bttn">Sign In</string>
 
+    <!-- Register Page Strings -->
+    <string name="register_welcome">Welcome !</string>
+    <string name="register_info">Get news and statistics of your favourite teams now</string>
+    <string name="register_sign_up_bttn">Sign Up</string>
 
 </resources>
