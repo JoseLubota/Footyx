@@ -1,7 +1,0 @@
-package com.example.footyxapp.ui.favourites
-
-import androidx.lifecycle.ViewModel
-
-class FavouritesViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
-}
