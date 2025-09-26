@@ -110,4 +110,9 @@
     <string name="register_info">Get news and statistics of your favourite teams now</string>
     <string name="register_sign_up_bttn">Sign Up</string>
 
+    <!-- Splash Screen Strings -->
+    <string name="splash_get_started">Get Started</string>
+    <string name="splash_welcome">Welcome to FootyX</string>
+    <string name="splash_tagline">Your ultimate football companion</string>
+
 </resources>
