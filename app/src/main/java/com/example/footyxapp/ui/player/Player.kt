@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -16,6 +17,8 @@ import com.example.footyxapp.data.model.Statistics
 import com.example.footyxapp.databinding.FragmentPlayerBinding
 import com.example.footyxapp.ui.common.SearchableFragment
 import com.example.footyxapp.ui.player.adapter.PlayerSearchAdapter
+import com.example.footyxapp.ui.player.adapter.TeamLeagueOption
+import com.example.footyxapp.ui.player.adapter.TeamSelectionAdapter
 
 class Player : Fragment(), SearchableFragment {
 
@@ -28,6 +31,8 @@ class Player : Fragment(), SearchableFragment {
     private val binding get() = _binding!!
     
     private lateinit var searchAdapter: PlayerSearchAdapter
+    private var currentPlayerData: PlayerData? = null
+    private var selectedStatisticsIndex: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -154,8 +159,8 @@ class Player : Fragment(), SearchableFragment {
     }
 
     private fun updateUI(playerData: PlayerData) {
+        currentPlayerData = playerData
         val player = playerData.player
-        val stats = if (playerData.statistics.isNotEmpty()) playerData.statistics[0] else null
 
         // Basic player info
         binding.textPlayerName.text = player.name
@@ -170,6 +175,46 @@ class Player : Fragment(), SearchableFragment {
             .placeholder(R.drawable.player_w)
             .error(R.drawable.player_w)
             .into(binding.playerPhoto)
+
+        // Setup team selection if multiple statistics are available
+        if (playerData.statistics.size > 1) {
+            setupTeamSelection(playerData.statistics)
+            binding.teamSelectionCard.visibility = View.VISIBLE
+        } else {
+            binding.teamSelectionCard.visibility = View.GONE
+            selectedStatisticsIndex = 0
+        }
+
+        // Display statistics for the selected team/league
+        displayStatistics()
+    }
+
+    private fun setupTeamSelection(statisticsList: List<Statistics>) {
+        val options = statisticsList.mapIndexed { index, stats ->
+            val displayName = "${stats.team.name} (${stats.league.name})"
+            TeamLeagueOption(stats, displayName)
+        }
+
+        val adapter = TeamSelectionAdapter(requireContext(), options)
+        binding.spinnerTeamSelection.adapter = adapter
+
+        binding.spinnerTeamSelection.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                selectedStatisticsIndex = position
+                displayStatistics()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+    }
+
+    private fun displayStatistics() {
+        val playerData = currentPlayerData ?: return
+        val stats = if (playerData.statistics.isNotEmpty()) {
+            playerData.statistics.getOrNull(selectedStatisticsIndex) ?: playerData.statistics[0]
+        } else {
+            null
+        }
 
         stats?.let { statistics ->
             // Team info
