@@ -103,9 +103,6 @@ class MainActivity : AppCompatActivity() {
                 currentFragment.clearSearchResults()
             }
         } else {
-            // For fragments that don't implement SearchableFragment, 
-            // you might want to navigate to a search results page or show a message
-            // For now, we'll just ignore the search for non-searchable fragments
         }
     }
 }
