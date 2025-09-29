@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -17,10 +19,10 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         
         // Read API key from local.properties and add to BuildConfig
-        val localProperties = java.util.Properties()
+        val localProperties = Properties()
         val localPropertiesFile = rootProject.file("local.properties")
         if (localPropertiesFile.exists()) {
-            localProperties.load(localPropertiesFile.inputStream())
+            localPropertiesFile.inputStream().use { localProperties.load(it) }
         }
         
         val footballApiKey = localProperties.getProperty("FOOTBALL_API_KEY") ?: "your_api_key_here"
