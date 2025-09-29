@@ -18,6 +18,8 @@ import com.example.footyxapp.databinding.FragmentTeamBinding
 import com.example.footyxapp.ui.common.SearchableFragment
 import com.example.footyxapp.ui.team.adapter.TeamSearchAdapter
 import com.example.footyxapp.ui.team.adapter.TeamLeagueAdapter
+import com.example.footyxapp.ui.team.adapter.FormationAdapter
+import com.example.footyxapp.ui.team.adapter.FormationWithPercentage
 
 class Team : Fragment(), SearchableFragment {
 
@@ -31,6 +33,7 @@ class Team : Fragment(), SearchableFragment {
     
     private lateinit var searchAdapter: TeamSearchAdapter
     private lateinit var leagueAdapter: TeamLeagueAdapter
+    private lateinit var formationAdapter: FormationAdapter
     private var currentTeamData: TeamData? = null
     private var selectedSeason: Int = 2023
 
@@ -76,6 +79,8 @@ class Team : Fragment(), SearchableFragment {
             onLeagueSelected(leagueData)
         }
         
+        formationAdapter = FormationAdapter()
+        
         binding.recyclerSearchResults.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = searchAdapter
@@ -84,6 +89,11 @@ class Team : Fragment(), SearchableFragment {
         binding.recyclerTeamLeagues.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = leagueAdapter
+        }
+        
+        binding.recyclerFormations.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = formationAdapter
         }
     }
 
@@ -251,6 +261,9 @@ class Team : Fragment(), SearchableFragment {
             val redCards = countTotalCards(statistics.cards.red)
             binding.textYellowCards.text = yellowCards.toString()
             binding.textRedCards.text = redCards.toString()
+            
+            // Update formations
+            updateFormations(statistics.lineups)
         }
     }
     
@@ -285,6 +298,26 @@ class Team : Fragment(), SearchableFragment {
             cardsMinute.min91To105.total,
             cardsMinute.min106To120.total
         ).sum()
+    }
+    
+    private fun updateFormations(lineups: List<com.example.footyxapp.data.model.TeamLineup>) {
+        val totalGames = lineups.sumOf { it.played }
+        
+        val formationsWithPercentage = lineups
+            .sortedByDescending { it.played } // Sort by most used first
+            .map { lineup ->
+                val percentage = if (totalGames > 0) {
+                    (lineup.played.toFloat() / totalGames.toFloat()) * 100f
+                } else 0f
+                
+                FormationWithPercentage(
+                    formation = lineup.formation,
+                    played = lineup.played,
+                    percentage = percentage
+                )
+            }
+        
+        formationAdapter.submitList(formationsWithPercentage)
     }
 
     override fun onDestroyView() {

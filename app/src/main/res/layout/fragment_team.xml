@@ -463,12 +463,12 @@
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
-                    <TextView
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerFormations"
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:gravity="center"
-                        android:text="[Pie Chart for Formations Goes Here]"
-                        android:textColor="#AFAFAF" />
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/item_formation" />
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
