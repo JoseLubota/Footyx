@@ -1,8 +1,10 @@
 package com.example.footyxapp.utils
 
+import com.example.footyxapp.BuildConfig
+
 object Constants {
-    // Replace this with your actual RapidAPI key for Football API
-    const val API_KEY = "0915e1204cd1e9c8a6e99ede69f7b6ca"
+    // Football API loaded from BuildConfig
+    val API_KEY = BuildConfig.FOOTBALL_API_KEY
     
     // Football API base configuration
     const val BASE_URL = "https://v3.football.api-sports.io/"
