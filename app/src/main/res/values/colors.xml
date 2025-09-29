@@ -12,5 +12,12 @@
     <color name="black_FootyX">#F2242424</color>
 
     <color name="live_match_red">#FF0000</color> <!-- Or a nicer shade of red -->
+    
+    <!-- Team statistics colors -->
+    <color name="primary_green">#4CAF50</color>
+    <color name="green_500">#4CAF50</color>
+    <color name="yellow_500">#FFC107</color>
+    <color name="red_500">#F44336</color>
+    <color name="gray_500">#666666</color>
 
 </resources>

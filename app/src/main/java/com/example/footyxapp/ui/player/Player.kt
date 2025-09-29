@@ -99,7 +99,7 @@ class Player : Fragment(), SearchableFragment {
     }
 
     // Implementation of SearchableFragment interface
-    override fun onSearchQuery(query: String) {
+    override fun onSearch(query: String) {
         if (query.trim().length >= 2) {
             viewModel.searchPlayers(query.trim())
         } else {
@@ -114,7 +114,7 @@ class Player : Fragment(), SearchableFragment {
 
     // This method will be called from MainActivity when user searches (legacy support)
     fun handleSearch(query: String) {
-        onSearchQuery(query)
+        onSearch(query)
     }
 
     private fun observeViewModel() {

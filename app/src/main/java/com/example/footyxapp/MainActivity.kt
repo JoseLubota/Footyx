@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
         // If the current fragment implements SearchableFragment, delegate search to it
         if (currentFragment is SearchableFragment) {
             if (query.isNotEmpty()) {
-                currentFragment.onSearchQuery(query)
+                currentFragment.onSearch(query)
             } else {
                 currentFragment.clearSearchResults()
             }
