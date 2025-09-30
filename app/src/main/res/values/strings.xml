@@ -126,4 +126,16 @@
     <string name="favorites_search_hint">Search teams or players...</string>
     <string name="favorites_back">Back</string>
 
+    <!-- recommend page after log-in-->
+    <string name="background_image_desc">Background image</string>
+    <string name="app_logo_desc">Application logo</string>
+    <string name="recommend_title_favourite_team">Favourite Team</string>
+    <string name="recommend_subtitle_info">Get started by finding and selecting your favourite teams</string>
+    <string name="recommend_search_hint">Search for a team</string>
+    <string name="recommend_no_teams_found">No teams found. Try a different search.</string>
+    <string name="recommend_button_done">Done</string>
+    <string name="recommend_button_skip">Skip</string>
+    <string name="or_separator">OR</string> <!-- If you use it -->
+    <string name="team_logo_desc">Team logo</string> <!-- For item_selectable_team -->
+
 </resources>
