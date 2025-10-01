@@ -91,7 +91,8 @@
                     app:queryHint="@string/recommend_search_hint"
                     app:iconifiedByDefault="false"
                     app:queryBackground="@android:color/transparent"
-                    android:theme="@style/FootyX.SearchView"/>
+                    android:theme="@style/Widget.AppCompat.SearchView"/>
+                <!-- @style/FootyX.SearchView -->
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_view_teams"
