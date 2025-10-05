@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context=".ui.favourites.Favourites">
+    android:fitsSystemWindows="true">
+    <!-- tools:context=".ui.favourites.Favourites"> -->
 
     <!-- Background Image -->
     <ImageView
@@ -62,7 +62,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/favorites_back"
                     android:src="@drawable/ic_arrow_back"
-                    android:tint="@color/white" />
+                    app:tint="@color/white" />
 
                 <TextView
                     android:layout_width="0dp"
