@@ -83,7 +83,6 @@ class SettingsActivity : AppCompatActivity() {
             // Navigate to FavoritesActivity
             val intent = Intent(this, FavoritesActivity::class.java)
             startActivity(intent)
-            finish()
         }
     }
     // Perform logout and then navigate to login

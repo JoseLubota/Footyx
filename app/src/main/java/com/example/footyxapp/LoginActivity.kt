@@ -104,7 +104,6 @@ class LoginActivity : AppCompatActivity() {
         }
         binding.loginRegisterBtn.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
-            finish()
         }
 
         binding.loginSignInBttn.setOnClickListener {
