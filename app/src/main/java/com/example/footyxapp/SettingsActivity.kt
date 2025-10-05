@@ -20,6 +20,7 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import kotlinx.coroutines.launch
+import kotlin.math.sign
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -68,8 +69,7 @@ class SettingsActivity : AppCompatActivity() {
 
         //
         logoutButton.setOnClickListener {
-            signOut()
-            startActivity(Intent(this, LoginActivity::class.java))
+            performLogout()
         }
     }
 
@@ -83,27 +83,45 @@ class SettingsActivity : AppCompatActivity() {
             // Navigate to FavoritesActivity
             val intent = Intent(this, FavoritesActivity::class.java)
             startActivity(intent)
+            finish()
+        }
+    }
+    // Perform logout and then navigate to login
+    private fun performLogout(){
+        lifecycleScope.launch {
+            val logoutSuccessful = signOut()
+
+            if(logoutSuccessful){
+                Toast.makeText(this@SettingsActivity, "Logged out successfully", Toast.LENGTH_SHORT).show()
+
+                // Navigate to Login
+                startActivity(Intent(this@SettingsActivity, LoginActivity::class.java))
+                finish()
+            }else{
+                Toast.makeText(this@SettingsActivity, "Error during logout", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
     // SignOut
     @androidx.annotation.OptIn(UnstableApi::class)
-    private fun signOut() {
-        // Firebase sign out
-        auth.signOut()
-        // When a user signs out, clear the current user credential state from all credential credential providers
-        lifecycleScope.launch {
-            try {
-                val clearRequest = ClearCredentialStateRequest()
-                credentialManager.clearCredentialState(clearRequest)
-                val sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE)
-                sharedPreferences.edit().remove("user_uid").apply()
-                Toast.makeText(this@SettingsActivity, "Logging Out", Toast.LENGTH_SHORT).show()
-            } catch (e: ClearCredentialException) {
-                Toast.makeText(this@SettingsActivity, "UPUI Error", Toast.LENGTH_SHORT).show()
-                Log.e(TAG, "Couldn't clear user credentials: ${e.localizedMessage}")
-            }
+    private suspend fun signOut(): Boolean {
 
+        // When a user signs out, clear the current user credential state from all credential credential providers
+        return try {
+            // Firebase sign out
+            auth.signOut()
+
+            val clearRequest = ClearCredentialStateRequest()
+            credentialManager.clearCredentialState(clearRequest)
+
+            val sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE)
+            sharedPreferences.edit().remove("user_uid").apply()
+
+            true
+        } catch (e: ClearCredentialException) {
+            Log.e(TAG, "Couldn't clear user credentials: ${e.localizedMessage}")
+            false
         }
     }
 }
