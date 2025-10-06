@@ -28,7 +28,7 @@ android {
         
         // Use API key from local.properties if available, otherwise use provided key for marking 
         val footballApiKey = localProperties.getProperty("FOOTBALL_API_KEY") 
-            ?: "a8c6c5c6c2d17afcdb0726b7ba3ec77a" 
+            ?: "efe0ed44cc7bf2c79ea5cab7756b8fd4" 
         
         buildConfigField("String", "FOOTBALL_API_KEY", "\"$footballApiKey\"")
     }
