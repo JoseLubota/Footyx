@@ -81,7 +81,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Set as default team"
             android:src="@drawable/ic_star_outline"
-            android:tint="@color/primary_green"
+            app:tint="@color/primary_green"
             app:layout_constraintBottom_toBottomOf="@id/imgTeamLogo"
             app:layout_constraintEnd_toStartOf="@id/btnRemove"
             app:layout_constraintTop_toTopOf="@id/imgTeamLogo" />
@@ -93,7 +93,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Remove from favorites"
             android:src="@drawable/ic_delete"
-            android:tint="#FF5252"
+            app:tint="#FF5252"
             app:layout_constraintBottom_toBottomOf="@id/imgTeamLogo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/imgTeamLogo" />

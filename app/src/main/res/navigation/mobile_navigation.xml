@@ -6,23 +6,10 @@
     app:startDestination="@id/home2">
 
     <fragment
-        android:id="@+id/favourites"
-        android:name="com.example.footyxapp.ui.favourites.Favourites"
-        android:label="fragment_favourites"
-        tools:layout="@layout/fragment_favourites" >
-        <action android:id="@+id/action_favourites_to_player" app:destination="@id/player" />
-        <action android:id="@+id/action_favourites_to_team" app:destination="@id/team" />
-        <action android:id="@+id/action_favourites_to_match" app:destination="@id/match" />
-        <action android:id="@+id/action_favourites_to_home2" app:destination="@id/home2" />
-        <action android:id="@+id/action_favourites_to_leagues" app:destination="@id/leagues" />
-    </fragment>
-
-    <fragment
         android:id="@+id/player"
         android:name="com.example.footyxapp.ui.player.Player"
         android:label="fragment_player"
         tools:layout="@layout/fragment_player" >
-        <action android:id="@+id/action_player_to_favourites" app:destination="@id/favourites" />
         <action android:id="@+id/action_player_to_team" app:destination="@id/team" />
         <action android:id="@+id/action_player_to_match" app:destination="@id/match" />
         <action android:id="@+id/action_player_to_home2" app:destination="@id/home2" />
@@ -34,7 +21,6 @@
         android:name="com.example.footyxapp.ui.team.Team"
         android:label="fragment_team"
         tools:layout="@layout/fragment_team" >
-        <action android:id="@+id/action_team_to_favourites" app:destination="@id/favourites" />
         <action android:id="@+id/action_team_to_player" app:destination="@id/player" />
         <action android:id="@+id/action_team_to_match" app:destination="@id/match" />
         <action android:id="@+id/action_team_to_home2" app:destination="@id/home2" />
@@ -46,7 +32,6 @@
         android:name="com.example.footyxapp.ui.match.Match"
         android:label="fragment_dashboard"
         tools:layout="@layout/fragment_match" >
-        <action android:id="@+id/action_match_to_favourites" app:destination="@id/favourites" />
         <action android:id="@+id/action_match_to_player" app:destination="@id/player" />
         <action android:id="@+id/action_match_to_team" app:destination="@id/team" />
         <action android:id="@+id/action_match_to_home2" app:destination="@id/home2" />
@@ -58,7 +43,6 @@
         android:name="com.example.footyxapp.ui.home.Home"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
-        <action android:id="@+id/action_home2_to_favourites" app:destination="@id/favourites" />
         <action android:id="@+id/action_home2_to_player" app:destination="@id/player" />
         <action android:id="@+id/action_home2_to_team" app:destination="@id/team" />
         <action android:id="@+id/action_home2_to_match" app:destination="@id/match" />
@@ -70,7 +54,6 @@
         android:name="com.example.footyxapp.ui.leagues.Leagues"
         android:label="fragment_notifications"
         tools:layout="@layout/fragment_leagues" >
-        <action android:id="@+id/action_leagues_to_favourites" app:destination="@id/favourites" />
         <action android:id="@+id/action_leagues_to_player" app:destination="@id/player" />
         <action android:id="@+id/action_leagues_to_team" app:destination="@id/team" />
         <action android:id="@+id/action_leagues_to_match" app:destination="@id/match" />

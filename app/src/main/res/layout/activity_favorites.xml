@@ -251,7 +251,7 @@
                                         android:background="?attr/selectableItemBackgroundBorderless"
                                         android:contentDescription="Remove favorite team"
                                         android:src="@drawable/ic_delete"
-                                        android:tint="#FF5252"
+                                        app:tint="#FF5252"
                                         app:layout_constraintBottom_toBottomOf="@id/imgFavoriteTeamLogo"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintTop_toTopOf="@id/imgFavoriteTeamLogo" />
@@ -402,7 +402,7 @@
                                         android:background="?attr/selectableItemBackgroundBorderless"
                                         android:contentDescription="Remove favorite player"
                                         android:src="@drawable/ic_delete"
-                                        android:tint="#FF5252"
+                                        app:tint="#FF5252"
                                         app:layout_constraintBottom_toBottomOf="@id/imgFavoritePlayerPhoto"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintTop_toTopOf="@id/imgFavoritePlayerPhoto" />

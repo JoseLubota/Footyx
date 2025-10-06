@@ -39,7 +39,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Close dialog"
                 android:src="@android:drawable/ic_menu_close_clear_cancel"
-                android:tint="@android:color/white" />
+                app:tint="@android:color/white" />
 
         </LinearLayout>
 
