@@ -23,9 +23,13 @@ import com.example.footyxapp.ui.player.adapter.TeamSelectionAdapter
 
 class Player : Fragment(), SearchableFragment {
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     companion object {
         fun newInstance() = Player()
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     private val viewModel: PlayerViewModel by viewModels()
     private var _binding: FragmentPlayerBinding? = null
@@ -35,9 +39,13 @@ class Player : Fragment(), SearchableFragment {
     private var currentPlayerData: PlayerData? = null
     private var selectedStatisticsIndex: Int = 0
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,6 +54,8 @@ class Player : Fragment(), SearchableFragment {
         _binding = FragmentPlayerBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -57,7 +67,9 @@ class Player : Fragment(), SearchableFragment {
         // Try to load favorite player, otherwise load Mbappé as example
         loadDefaultOrExamplePlayer()
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun loadDefaultOrExamplePlayer() {
         val favoritesManager = FavoritesManager.getInstance(requireContext())
         val favoritePlayer = favoritesManager.getFavoritePlayer()
@@ -78,6 +90,8 @@ class Player : Fragment(), SearchableFragment {
         }
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun setupRecyclerView() {
         searchAdapter = PlayerSearchAdapter { playerProfile ->
             onPlayerSelected(playerProfile)
@@ -88,6 +102,8 @@ class Player : Fragment(), SearchableFragment {
             adapter = searchAdapter
         }
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     private fun setupSeasonFunctionality() {
         binding.btnClearSearch.setOnClickListener {
@@ -114,6 +130,8 @@ class Player : Fragment(), SearchableFragment {
         })
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun onPlayerSelected(playerProfile: PlayerProfile) {
         val playerId = playerProfile.player.id
         val seasonText = binding.editSeason.text.toString().trim()
@@ -139,14 +157,20 @@ class Player : Fragment(), SearchableFragment {
         viewModel.loadPlayer(playerId, season)
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun hideSearchResults() {
         binding.recyclerSearchResults.visibility = View.GONE
         binding.seasonSelectionCard.visibility = View.GONE
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun hidePlayerDetails() {
         binding.layoutPlayerDetails.visibility = View.GONE
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     // Implementation of SearchableFragment interface
     override fun onSearch(query: String) {
@@ -157,15 +181,21 @@ class Player : Fragment(), SearchableFragment {
         }
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun clearSearchResults() {
         viewModel.clearSearch()
         hideSearchResults()
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     // This method will be called from MainActivity when user searches (legacy support)
     fun handleSearch(query: String) {
         onSearch(query)
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     private fun observeViewModel() {
         viewModel.playerData.observe(viewLifecycleOwner) { playerData ->
@@ -208,6 +238,8 @@ class Player : Fragment(), SearchableFragment {
         }
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun updateUI(playerData: PlayerData) {
         currentPlayerData = playerData
         val player = playerData.player
@@ -239,6 +271,8 @@ class Player : Fragment(), SearchableFragment {
         displayStatistics()
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun setupTeamSelection(statisticsList: List<Statistics>) {
         val options = statisticsList.mapIndexed { index, stats ->
             val displayName = "${stats.team.name} (${stats.league.name})"
@@ -257,6 +291,8 @@ class Player : Fragment(), SearchableFragment {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     private fun displayStatistics() {
         val playerData = currentPlayerData ?: return
@@ -314,8 +350,13 @@ class Player : Fragment(), SearchableFragment {
         }
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
 }

@@ -9,9 +9,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class TeamRepository {
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private val apiService = ApiClient.footballApiService
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     suspend fun searchTeams(query: String): Result<TeamSearchResponse> {
         return withContext(Dispatchers.IO) {
             try {
@@ -30,7 +34,9 @@ class TeamRepository {
             }
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     suspend fun getTeamLeagues(teamId: Int, season: Int): Result<TeamLeaguesResponse> {
         return withContext(Dispatchers.IO) {
             try {
@@ -50,7 +56,9 @@ class TeamRepository {
             }
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     suspend fun getTeamStatistics(teamId: Int, leagueId: Int, season: Int): Result<TeamStatisticsResponse> {
         return withContext(Dispatchers.IO) {
             try {
@@ -71,4 +79,7 @@ class TeamRepository {
             }
         }
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
 }

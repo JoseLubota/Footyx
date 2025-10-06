@@ -23,9 +23,13 @@ import com.example.footyxapp.ui.team.adapter.FormationWithPercentage
 
 class Team : Fragment(), SearchableFragment {
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     companion object {
         fun newInstance() = Team()
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     private val viewModel: TeamViewModel by viewModels()
     private var _binding: FragmentTeamBinding? = null
@@ -37,6 +41,8 @@ class Team : Fragment(), SearchableFragment {
     private var currentTeamData: TeamData? = null
     private var selectedSeason: Int = 2023
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,6 +50,8 @@ class Team : Fragment(), SearchableFragment {
         _binding = FragmentTeamBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -56,6 +64,8 @@ class Team : Fragment(), SearchableFragment {
         loadDefaultOrExampleTeam()
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun onSearch(query: String) {
         if (query.isNotEmpty()) {
             viewModel.searchTeams(query)
@@ -65,10 +75,14 @@ class Team : Fragment(), SearchableFragment {
         }
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun clearSearchResults() {
         viewModel.clearSearchResults()
         hideSearchResults()
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     private fun setupRecyclerViews() {
         searchAdapter = TeamSearchAdapter { teamData ->
@@ -96,6 +110,8 @@ class Team : Fragment(), SearchableFragment {
             adapter = formationAdapter
         }
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     private fun setupSeasonFunctionality() {
         binding.btnClearSearch.setOnClickListener {
@@ -125,6 +141,8 @@ class Team : Fragment(), SearchableFragment {
         })
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun onTeamSelected(teamData: TeamData) {
         currentTeamData = teamData
         val seasonText = binding.editSeason.text.toString().trim()
@@ -146,6 +164,8 @@ class Team : Fragment(), SearchableFragment {
         showLeagueSelection()
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun onLeagueSelected(leagueData: TeamLeagueData) {
         currentTeamData?.let { teamData ->
             // Load team statistics for the selected league and season
@@ -156,6 +176,8 @@ class Team : Fragment(), SearchableFragment {
             showTeamDetails()
         }
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     private fun loadDefaultOrExampleTeam() {
         // Try to load default favorite team
@@ -181,7 +203,9 @@ class Team : Fragment(), SearchableFragment {
             loadExampleTeam()
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun loadExampleTeam() {
         // Load PSG data as example
         currentTeamData = TeamData(
@@ -209,6 +233,8 @@ class Team : Fragment(), SearchableFragment {
         showTeamDetails()
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun showSearchResults() {
         binding.recyclerSearchResults.visibility = View.VISIBLE
         binding.seasonSelectionCard.visibility = View.VISIBLE
@@ -216,28 +242,40 @@ class Team : Fragment(), SearchableFragment {
         hideTeamDetails()
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun hideSearchResults() {
         binding.recyclerSearchResults.visibility = View.GONE
         binding.seasonSelectionCard.visibility = View.GONE
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     private fun showLeagueSelection() {
         binding.recyclerTeamLeagues.visibility = View.VISIBLE
         binding.leagueSelectionCard.visibility = View.VISIBLE
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun hideLeagueSelection() {
         binding.recyclerTeamLeagues.visibility = View.GONE
         binding.leagueSelectionCard.visibility = View.GONE
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun showTeamDetails() {
         binding.layoutTeamDetails.visibility = View.VISIBLE
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun hideTeamDetails() {
         binding.layoutTeamDetails.visibility = View.GONE
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     private fun observeViewModel() {
         viewModel.searchResults.observe(viewLifecycleOwner) { teams ->
@@ -271,6 +309,8 @@ class Team : Fragment(), SearchableFragment {
             }
         }
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     private fun updateTeamStatistics(statistics: TeamStatistics) {
         currentTeamData?.let { teamData ->
@@ -316,7 +356,9 @@ class Team : Fragment(), SearchableFragment {
             updateFormations(statistics.lineups)
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun updateTeamForm(form: String) {
         binding.formContainer.removeAllViews()
         
@@ -336,7 +378,9 @@ class Team : Fragment(), SearchableFragment {
             binding.formContainer.addView(resultView)
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun countTotalCards(cardsMinute: com.example.footyxapp.data.model.TeamGoalsMinute): Int {
         return listOfNotNull(
             cardsMinute.min0To15.total,
@@ -349,7 +393,9 @@ class Team : Fragment(), SearchableFragment {
             cardsMinute.min106To120.total
         ).sum()
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun updateFormations(lineups: List<com.example.footyxapp.data.model.TeamLineup>) {
         val totalGames = lineups.sumOf { it.played }
         
@@ -370,8 +416,13 @@ class Team : Fragment(), SearchableFragment {
         formationAdapter.submitList(formationsWithPercentage)
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
 }

@@ -19,14 +19,17 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         
-        // Read API key from local.properties and add to BuildConfig
+        // Football API Key Configuration
         val localProperties = Properties()
         val localPropertiesFile = rootProject.file("local.properties")
         if (localPropertiesFile.exists()) {
             localPropertiesFile.inputStream().use { localProperties.load(it) }
         }
         
-        val footballApiKey = localProperties.getProperty("FOOTBALL_API_KEY") ?: "your_api_key_here"
+        // Use API key from local.properties if available, otherwise use provided key for marking 
+        val footballApiKey = localProperties.getProperty("FOOTBALL_API_KEY") 
+            ?: "a8c6c5c6c2d17afcdb0726b7ba3ec77a" 
+        
         buildConfigField("String", "FOOTBALL_API_KEY", "\"$footballApiKey\"")
     }
 

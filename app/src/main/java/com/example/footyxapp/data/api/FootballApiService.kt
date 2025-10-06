@@ -11,7 +11,9 @@ import retrofit2.http.Header
 import retrofit2.http.Query
 
 interface FootballApiService {
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     @GET("players")
     suspend fun getPlayer(
         @Header("X-RapidAPI-Key") apiKey: String,
@@ -19,21 +21,27 @@ interface FootballApiService {
         @Query("id") playerId: Int,
         @Query("season") season: Int
     ): Response<PlayerResponse>
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     @GET("players/profiles")
     suspend fun searchPlayers(
         @Header("X-RapidAPI-Key") apiKey: String,
         @Header("X-RapidAPI-Host") host: String = "v3.football.api-sports.io",
         @Query("search") searchQuery: String
     ): Response<PlayerSearchResponse>
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     @GET("teams")
     suspend fun searchTeams(
         @Header("X-RapidAPI-Key") apiKey: String,
         @Header("X-RapidAPI-Host") host: String = "v3.football.api-sports.io",
         @Query("search") searchQuery: String
     ): Response<TeamSearchResponse>
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     @GET("leagues")
     suspend fun getTeamLeagues(
         @Header("X-RapidAPI-Key") apiKey: String,
@@ -41,7 +49,9 @@ interface FootballApiService {
         @Query("season") season: Int,
         @Query("team") teamId: Int
     ): Response<TeamLeaguesResponse>
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     @GET("teams/statistics")
     suspend fun getTeamStatistics(
         @Header("X-RapidAPI-Key") apiKey: String,
@@ -50,4 +60,7 @@ interface FootballApiService {
         @Query("season") season: Int,
         @Query("team") teamId: Int
     ): Response<TeamStatisticsResponse>
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
 }

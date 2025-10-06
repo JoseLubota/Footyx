@@ -17,6 +17,8 @@ import com.example.footyxapp.ui.common.SearchableFragment
 
 class MainActivity : AppCompatActivity() {
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     
@@ -24,6 +26,8 @@ class MainActivity : AppCompatActivity() {
     private val searchHandler = Handler(Looper.getMainLooper())
     private var searchRunnable: Runnable? = null
     private val SEARCH_DELAY_MS = 800L // Wait 800ms after user stops typing
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +54,9 @@ class MainActivity : AppCompatActivity() {
         // Set up global search functionality
         setupGlobalSearch()
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun setupToolbarButtons() {
         // Leaderboard button click listener
         binding.buttonLeaderboard.setOnClickListener {
@@ -64,7 +70,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun setupGlobalSearch() {
         binding.searchEditText.addTextChangedListener { text ->
             val query = text.toString().trim()
@@ -97,7 +105,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun handleGlobalSearch(query: String) {
         // Get the current fragment
         val currentFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main)
@@ -113,4 +123,7 @@ class MainActivity : AppCompatActivity() {
         } else {
         }
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
 }

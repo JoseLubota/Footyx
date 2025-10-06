@@ -23,7 +23,9 @@ import com.example.footyxapp.ui.team.adapter.TeamSearchAdapter
 import com.example.footyxapp.ui.team.adapter.TeamLeagueAdapter
 
 class TeamSearchDialogFragment : DialogFragment() {
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private var _binding: DialogTeamSearchBinding? = null
     private val binding get() = _binding!!
     
@@ -32,7 +34,7 @@ class TeamSearchDialogFragment : DialogFragment() {
     private lateinit var leagueAdapter: TeamLeagueAdapter
     
     private var selectedTeam: TeamData? = null
-    private var selectedSeason: Int = 2023 // Default to 2023 (free API limit)
+    private var selectedSeason: Int = 2023 // Default to 2023
     
     private var onTeamAndLeagueSelected: ((TeamData, TeamLeagueData, Int) -> Unit)? = null
     
@@ -40,7 +42,9 @@ class TeamSearchDialogFragment : DialogFragment() {
     private val searchHandler = Handler(Looper.getMainLooper())
     private var searchRunnable: Runnable? = null
     private var lastSearchQuery = ""
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     companion object {
         const val TAG = "TeamSearchDialog"
         private const val SEARCH_DELAY_MS = 800L // Delay before executing search
@@ -52,7 +56,9 @@ class TeamSearchDialogFragment : DialogFragment() {
             }
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -61,7 +67,9 @@ class TeamSearchDialogFragment : DialogFragment() {
         _binding = DialogTeamSearchBinding.inflate(inflater, container, false)
         return binding.root
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
@@ -74,7 +82,9 @@ class TeamSearchDialogFragment : DialogFragment() {
         // Show team search initially
         showTeamSearch()
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun onStart() {
         super.onStart()
         dialog?.window?.apply {
@@ -86,7 +96,9 @@ class TeamSearchDialogFragment : DialogFragment() {
             setBackgroundDrawableResource(android.R.color.transparent)
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun setupRecyclerViews() {
         // Team search adapter
         searchAdapter = TeamSearchAdapter { teamData ->
@@ -108,21 +120,27 @@ class TeamSearchDialogFragment : DialogFragment() {
             adapter = leagueAdapter
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun onTeamSearchResultClicked(teamData: TeamData) {
         selectedTeam = teamData
         // Load leagues for this team
         viewModel.loadTeamLeagues(teamData.team.id, selectedSeason)
         showLeagueSelection()
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun onLeagueSelected(leagueData: TeamLeagueData) {
         selectedTeam?.let { team ->
             onTeamAndLeagueSelected?.invoke(team, leagueData, selectedSeason)
             dismiss()
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun setupSearchBar() {
         binding.editSearchTeam.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -154,7 +172,9 @@ class TeamSearchDialogFragment : DialogFragment() {
             }
         })
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun setupSeasonInput() {
         // Set default season to 2023
         binding.editSeason.setText(selectedSeason.toString())
@@ -175,25 +195,33 @@ class TeamSearchDialogFragment : DialogFragment() {
             override fun afterTextChanged(s: Editable?) {}
         })
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun setupCloseButton() {
         binding.btnClose.setOnClickListener {
             dismiss()
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun showTeamSearch() {
         binding.txtDialogTitle.text = "Search for a Team"
         binding.layoutTeamSearch.visibility = View.VISIBLE
         binding.layoutLeagueSelection.visibility = View.GONE
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun showLeagueSelection() {
         binding.txtDialogTitle.text = "Select League"
         binding.layoutTeamSearch.visibility = View.GONE
         binding.layoutLeagueSelection.visibility = View.VISIBLE
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun observeViewModel() {
         viewModel.searchResults.observe(viewLifecycleOwner) { teams ->
             searchAdapter.submitList(teams)
@@ -226,7 +254,9 @@ class TeamSearchDialogFragment : DialogFragment() {
             }
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun onDestroyView() {
         super.onDestroyView()
         // Clean up search handler

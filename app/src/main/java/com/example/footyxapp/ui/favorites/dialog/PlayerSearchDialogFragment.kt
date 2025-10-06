@@ -23,6 +23,8 @@ import com.example.footyxapp.ui.player.adapter.PlayerSearchAdapter
 
 class PlayerSearchDialogFragment : DialogFragment() {
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     companion object {
         const val TAG = "PlayerSearchDialog"
         private const val SEARCH_DELAY_MS = 800L // Delay before executing search
@@ -36,6 +38,8 @@ class PlayerSearchDialogFragment : DialogFragment() {
             }
         }
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     private var _binding: DialogPlayerSearchBinding? = null
     private val binding get() = _binding!!
@@ -51,11 +55,15 @@ class PlayerSearchDialogFragment : DialogFragment() {
     private var searchRunnable: Runnable? = null
     private var lastSearchQuery = ""
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)
         dialog.window?.requestFeature(Window.FEATURE_NO_TITLE)
         return dialog
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,6 +73,8 @@ class PlayerSearchDialogFragment : DialogFragment() {
         _binding = DialogPlayerSearchBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -77,6 +87,8 @@ class PlayerSearchDialogFragment : DialogFragment() {
         observeViewModel()
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun onStart() {
         super.onStart()
         dialog?.window?.apply {
@@ -88,6 +100,8 @@ class PlayerSearchDialogFragment : DialogFragment() {
             setBackgroundDrawableResource(android.R.color.transparent)
         }
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     private fun setupDialog() {
         binding.txtDialogTitle.text = "Search for a Player"
@@ -103,6 +117,8 @@ class PlayerSearchDialogFragment : DialogFragment() {
             adapter = searchAdapter
         }
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     private fun setupSeasonInput() {
         binding.editSeason.setText(selectedSeason.toString())
@@ -122,6 +138,8 @@ class PlayerSearchDialogFragment : DialogFragment() {
             }
         })
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     private fun setupSearchInput() {
         binding.editPlayerSearch.addTextChangedListener(object : TextWatcher {
@@ -155,11 +173,15 @@ class PlayerSearchDialogFragment : DialogFragment() {
         })
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun setupClickListeners() {
         binding.btnClose.setOnClickListener {
             dismiss()
         }
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     private fun onPlayerSearchResultClicked(playerProfile: PlayerProfile) {
         val playerId = playerProfile.player.id
@@ -179,6 +201,8 @@ class PlayerSearchDialogFragment : DialogFragment() {
         // Load full player data with statistics for the selected season
         viewModel.loadPlayer(playerId, finalSeason)
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     private fun observeViewModel() {
         viewModel.searchResults.observe(viewLifecycleOwner) { results ->
@@ -214,6 +238,8 @@ class PlayerSearchDialogFragment : DialogFragment() {
             }
         }
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     override fun onDestroyView() {
         super.onDestroyView()

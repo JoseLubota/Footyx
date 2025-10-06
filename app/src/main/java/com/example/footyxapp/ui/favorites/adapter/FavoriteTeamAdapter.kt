@@ -14,22 +14,31 @@ import com.example.footyxapp.R
 import com.example.footyxapp.data.model.TeamData
 
 class FavoriteTeamAdapter(
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private val onTeamClick: (TeamData) -> Unit,
     private val onRemoveClick: (TeamData) -> Unit,
     private val onSetDefaultClick: (TeamData) -> Unit,
     private val isDefaultTeam: (Int) -> Boolean
 ) : ListAdapter<TeamData, FavoriteTeamAdapter.FavoriteTeamViewHolder>(DiffCallback) {
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteTeamViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_favorite_team, parent, false)
         return FavoriteTeamViewHolder(view)
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun onBindViewHolder(holder: FavoriteTeamViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     inner class FavoriteTeamViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val teamLogo: ImageView = itemView.findViewById(R.id.imgTeamLogo)
         private val teamName: TextView = itemView.findViewById(R.id.txtTeamName)
@@ -69,7 +78,9 @@ class FavoriteTeamAdapter(
             }
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     companion object {
         private val DiffCallback = object : DiffUtil.ItemCallback<TeamData>() {
             override fun areItemsTheSame(oldItem: TeamData, newItem: TeamData): Boolean {

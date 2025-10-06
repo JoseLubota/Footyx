@@ -11,7 +11,9 @@ import com.example.footyxapp.utils.Constants
 import kotlinx.coroutines.launch
 
 class PlayerViewModel : ViewModel() {
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private val repository = PlayerRepository()
     
     private val _playerData = MutableLiveData<PlayerData?>()
@@ -28,12 +30,16 @@ class PlayerViewModel : ViewModel() {
     
     private val _error = MutableLiveData<String?>()
     val error: LiveData<String?> = _error
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     // Rate limiting
     private var lastSearchQuery = ""
     private var lastSearchTime = 0L
     private val MIN_SEARCH_INTERVAL = 1000L // 1 second between searches
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     fun loadPlayer(playerId: Int, season: Int = Constants.DEFAULT_SEASON) {
         viewModelScope.launch {
             _isLoading.value = true
@@ -61,7 +67,9 @@ class PlayerViewModel : ViewModel() {
             _isLoading.value = false
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     fun searchPlayers(query: String) {
         // Rate limiting check
         val currentTime = System.currentTimeMillis()
@@ -100,13 +108,20 @@ class PlayerViewModel : ViewModel() {
             _isSearching.value = false
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     fun clearSearch() {
         _searchResults.value = emptyList()
         _error.value = null
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     fun clearError() {
         _error.value = ""
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
 }

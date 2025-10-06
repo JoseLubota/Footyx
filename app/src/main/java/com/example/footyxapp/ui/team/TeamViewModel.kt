@@ -11,7 +11,9 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class TeamViewModel : ViewModel() {
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private val repository = TeamRepository()
     
     // Live data for team search results
@@ -42,7 +44,9 @@ class TeamViewModel : ViewModel() {
     
     // Search job for cancellation
     private var searchJob: Job? = null
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     fun searchTeams(query: String) {
         if (query.isBlank()) {
             _searchResults.value = emptyList()
@@ -71,7 +75,9 @@ class TeamViewModel : ViewModel() {
             )
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     fun loadTeamLeagues(teamId: Int, season: Int) {
         viewModelScope.launch {
             _isLoadingLeagues.value = true
@@ -88,7 +94,9 @@ class TeamViewModel : ViewModel() {
             )
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     fun loadTeamStatistics(teamId: Int, leagueId: Int, season: Int) {
         viewModelScope.launch {
             _isLoadingStatistics.value = true
@@ -105,14 +113,21 @@ class TeamViewModel : ViewModel() {
             )
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     fun clearSearchResults() {
         searchJob?.cancel()
         _searchResults.value = emptyList()
         _isSearching.value = false
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     fun clearError() {
         _error.value = "error"
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
 }

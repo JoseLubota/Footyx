@@ -24,6 +24,8 @@ import kotlin.math.sign
 
 class SettingsActivity : AppCompatActivity() {
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private lateinit var binding: SettingsActivityBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var credentialManager: CredentialManager
@@ -40,6 +42,7 @@ class SettingsActivity : AppCompatActivity() {
         .addCredentialOption(googleIdOption)
         .build()
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,6 +76,8 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun setupFavoriteTeamNavigation() {
         // Find the favorite team LinearLayout and set click listener
         val favoriteTeamLayout = binding.root.findViewById<android.widget.LinearLayout>(
@@ -85,6 +90,9 @@ class SettingsActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     // Perform logout and then navigate to login
     private fun performLogout(){
         lifecycleScope.launch {
@@ -101,6 +109,8 @@ class SettingsActivity : AppCompatActivity() {
             }
         }
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     // SignOut
     @androidx.annotation.OptIn(UnstableApi::class)
@@ -123,4 +133,7 @@ class SettingsActivity : AppCompatActivity() {
             false
         }
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
 }

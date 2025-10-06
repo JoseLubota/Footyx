@@ -14,8 +14,12 @@ import com.example.footyxapp.ui.favorites.dialog.PlayerSearchDialogFragment
 
 class FavoritesActivity : AppCompatActivity() {
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private lateinit var binding: ActivityFavoritesBinding
     private lateinit var favoritesManager: FavoritesManager
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,14 +39,18 @@ class FavoritesActivity : AppCompatActivity() {
         // Load favorite team
         loadFavoriteTeam()
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun onResume() {
         super.onResume()
         // Refresh favorites when returning to this activity
         loadFavoriteTeam()
         loadFavoritePlayer()
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun setupClickListeners() {
         binding.btnBack.setOnClickListener {
             finish()
@@ -56,7 +64,9 @@ class FavoritesActivity : AppCompatActivity() {
             showPlayerSearchDialog()
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun loadFavoriteTeam() {
         val favorite = favoritesManager.getFavoriteTeam()
         
@@ -90,7 +100,9 @@ class FavoritesActivity : AppCompatActivity() {
             binding.btnAddTeam.text = getString(R.string.favorites_add_team)
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun loadFavoritePlayer() {
         val favorite = favoritesManager.getFavoritePlayer()
         
@@ -125,14 +137,18 @@ class FavoritesActivity : AppCompatActivity() {
             binding.btnAddPlayer.text = getString(R.string.favorites_add_player)
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun showPlayerSearchDialog() {
         val dialog = PlayerSearchDialogFragment.newInstance { playerData, season ->
             saveFavoritePlayer(playerData, season)
         }
         dialog.show(supportFragmentManager, PlayerSearchDialogFragment.TAG)
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun saveFavoritePlayer(playerData: PlayerData, season: Int) {
         favoritesManager.saveFavoritePlayer(playerData, season)
         
@@ -144,7 +160,9 @@ class FavoritesActivity : AppCompatActivity() {
         
         loadFavoritePlayer()
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun showRemovePlayerDialog() {
         val favorite = favoritesManager.getFavoritePlayer() ?: return
         
@@ -157,7 +175,9 @@ class FavoritesActivity : AppCompatActivity() {
             .setNegativeButton("Cancel", null)
             .show()
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun removeFavoritePlayer() {
         favoritesManager.clearFavoritePlayer()
         Toast.makeText(
@@ -167,14 +187,18 @@ class FavoritesActivity : AppCompatActivity() {
         ).show()
         loadFavoritePlayer()
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun showTeamSearchDialog() {
         val dialog = TeamSearchDialogFragment.newInstance { teamData, leagueData, season ->
             saveFavoriteTeam(teamData, leagueData, season)
         }
         dialog.show(supportFragmentManager, TeamSearchDialogFragment.TAG)
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun saveFavoriteTeam(
         teamData: com.example.footyxapp.data.model.TeamData,
         leagueData: com.example.footyxapp.data.model.TeamLeagueData,
@@ -195,7 +219,9 @@ class FavoritesActivity : AppCompatActivity() {
         
         loadFavoriteTeam()
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun showRemoveTeamDialog() {
         val favorite = favoritesManager.getFavoriteTeam() ?: return
         
@@ -208,7 +234,9 @@ class FavoritesActivity : AppCompatActivity() {
             .setNegativeButton("Cancel", null)
             .show()
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private fun removeFavoriteTeam() {
         favoritesManager.clearFavoriteTeam()
         Toast.makeText(
@@ -218,4 +246,7 @@ class FavoritesActivity : AppCompatActivity() {
         ).show()
         loadFavoriteTeam()
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
 }

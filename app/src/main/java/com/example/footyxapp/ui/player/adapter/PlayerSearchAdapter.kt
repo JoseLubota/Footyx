@@ -14,6 +14,8 @@ class PlayerSearchAdapter(
     private val onPlayerClick: (PlayerProfile) -> Unit
 ) : ListAdapter<PlayerProfile, PlayerSearchAdapter.PlayerSearchViewHolder>(PlayerDiffCallback()) {
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlayerSearchViewHolder {
         val binding = ItemPlayerSearchBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
@@ -21,9 +23,13 @@ class PlayerSearchAdapter(
         return PlayerSearchViewHolder(binding, onPlayerClick)
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun onBindViewHolder(holder: PlayerSearchViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
 
     class PlayerSearchViewHolder(
         private val binding: ItemPlayerSearchBinding,
@@ -53,6 +59,8 @@ class PlayerSearchAdapter(
         }
     }
 
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     private class PlayerDiffCallback : DiffUtil.ItemCallback<PlayerProfile>() {
         override fun areItemsTheSame(oldItem: PlayerProfile, newItem: PlayerProfile): Boolean {
             return oldItem.player.id == newItem.player.id
@@ -62,4 +70,7 @@ class PlayerSearchAdapter(
             return oldItem == newItem
         }
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
 }

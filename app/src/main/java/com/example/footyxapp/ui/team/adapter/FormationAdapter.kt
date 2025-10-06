@@ -19,16 +19,22 @@ data class FormationWithPercentage(
 )
 
 class FormationAdapter : ListAdapter<FormationWithPercentage, FormationAdapter.FormationViewHolder>(DiffCallback) {
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FormationViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_formation, parent, false)
         return FormationViewHolder(view)
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun onBindViewHolder(holder: FormationViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     inner class FormationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val txtFormation: TextView = itemView.findViewById(R.id.txtFormation)
         private val txtGamesPlayed: TextView = itemView.findViewById(R.id.txtGamesPlayed)
@@ -62,7 +68,9 @@ class FormationAdapter : ListAdapter<FormationWithPercentage, FormationAdapter.F
             progressBar.background = drawable
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     companion object {
         private val DiffCallback = object : DiffUtil.ItemCallback<FormationWithPercentage>() {
             override fun areItemsTheSame(oldItem: FormationWithPercentage, newItem: FormationWithPercentage): Boolean {
@@ -74,4 +82,7 @@ class FormationAdapter : ListAdapter<FormationWithPercentage, FormationAdapter.F
             }
         }
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
 }

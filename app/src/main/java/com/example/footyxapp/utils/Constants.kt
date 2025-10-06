@@ -3,6 +3,9 @@ package com.example.footyxapp.utils
 import com.example.footyxapp.BuildConfig
 
 object Constants {
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     // Football API loaded from BuildConfig
     val API_KEY = BuildConfig.FOOTBALL_API_KEY
     
@@ -12,4 +15,7 @@ object Constants {
     
     // Default values
     const val DEFAULT_SEASON = 2023
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
 }

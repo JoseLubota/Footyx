@@ -15,16 +15,22 @@ import com.example.footyxapp.data.model.TeamData
 class TeamSearchAdapter(
     private val onTeamClick: (TeamData) -> Unit
 ) : ListAdapter<TeamData, TeamSearchAdapter.TeamViewHolder>(DiffCallback) {
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_team_search, parent, false)
         return TeamViewHolder(view)
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     override fun onBindViewHolder(holder: TeamViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     inner class TeamViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val teamLogo: ImageView = itemView.findViewById(R.id.imgTeamLogo)
         private val teamName: TextView = itemView.findViewById(R.id.txtTeamName)
@@ -53,7 +59,9 @@ class TeamSearchAdapter(
             }
         }
     }
-    
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
     companion object {
         private val DiffCallback = object : DiffUtil.ItemCallback<TeamData>() {
             override fun areItemsTheSame(oldItem: TeamData, newItem: TeamData): Boolean {
@@ -65,4 +73,7 @@ class TeamSearchAdapter(
             }
         }
     }
+
+    //°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°//
+
 }
