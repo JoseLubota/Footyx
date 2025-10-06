@@ -51,6 +51,28 @@
                 android:padding="16dp"
                 android:gravity="center_vertical">
 
+                <EditText
+                    android:id="@+id/editSeason"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_text_background"
+                    android:hint="Enter season (2021-2023)"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:text="2023"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="#AFAFAF" />
+
+                <Button
+                    android:id="@+id/btnClearSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/primary_green"
+                    android:text="Clear"
+                    android:textColor="@android:color/white" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -58,28 +80,6 @@
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
                     android:layout_marginEnd="12dp" />
-
-                <EditText
-                    android:id="@+id/editSeason"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="2023"
-                    android:textColor="@android:color/white"
-                    android:textColorHint="#AFAFAF"
-                    android:hint="Enter season (2021-2023)"
-                    android:inputType="number"
-                    android:maxLength="4"
-                    android:background="@drawable/edit_text_background" />
-
-                <Button
-                    android:id="@+id/btnClearSearch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="Clear"
-                    android:textColor="@android:color/white"
-                    android:backgroundTint="@color/primary_green"
-                    android:layout_marginStart="8dp" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

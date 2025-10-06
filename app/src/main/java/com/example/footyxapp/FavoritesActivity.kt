@@ -7,8 +7,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.footyxapp.data.manager.FavoritesManager
+import com.example.footyxapp.data.model.PlayerData
 import com.example.footyxapp.databinding.ActivityFavoritesBinding
 import com.example.footyxapp.ui.favorites.dialog.TeamSearchDialogFragment
+import com.example.footyxapp.ui.favorites.dialog.PlayerSearchDialogFragment
 
 class FavoritesActivity : AppCompatActivity() {
 
@@ -38,6 +40,7 @@ class FavoritesActivity : AppCompatActivity() {
         super.onResume()
         // Refresh favorites when returning to this activity
         loadFavoriteTeam()
+        loadFavoritePlayer()
     }
     
     private fun setupClickListeners() {
@@ -49,9 +52,8 @@ class FavoritesActivity : AppCompatActivity() {
             showTeamSearchDialog()
         }
         
-        // TODO: Implement player favorites later
         binding.btnAddPlayer.setOnClickListener {
-            Toast.makeText(this, "Player favorites coming soon!", Toast.LENGTH_SHORT).show()
+            showPlayerSearchDialog()
         }
     }
     
@@ -87,6 +89,83 @@ class FavoritesActivity : AppCompatActivity() {
             binding.tvNoTeams.visibility = View.VISIBLE
             binding.btnAddTeam.text = getString(R.string.favorites_add_team)
         }
+    }
+    
+    private fun loadFavoritePlayer() {
+        val favorite = favoritesManager.getFavoritePlayer()
+        
+        if (favorite != null) {
+            // Show favorite player card
+            binding.layoutFavoritePlayer.visibility = View.VISIBLE
+            binding.tvNoPlayers.visibility = View.GONE
+            
+            // Display player info
+            val player = favorite.playerData.player
+            binding.txtFavoritePlayerName.text = player.name
+            binding.txtFavoritePlayerNationality.text = player.nationality
+            binding.txtFavoritePlayerSeason.text = "Season ${favorite.season}"
+            
+            Glide.with(this)
+                .load(player.photo)
+                .placeholder(R.drawable.player_w)
+                .error(R.drawable.player_w)
+                .into(binding.imgFavoritePlayerPhoto)
+            
+            // Show change button instead of add button
+            binding.btnAddPlayer.text = "Change Player"
+            
+            // Set up remove button
+            binding.btnRemoveFavoritePlayer.setOnClickListener {
+                showRemovePlayerDialog()
+            }
+        } else {
+            // Show empty state
+            binding.layoutFavoritePlayer.visibility = View.GONE
+            binding.tvNoPlayers.visibility = View.VISIBLE
+            binding.btnAddPlayer.text = getString(R.string.favorites_add_player)
+        }
+    }
+    
+    private fun showPlayerSearchDialog() {
+        val dialog = PlayerSearchDialogFragment.newInstance { playerData, season ->
+            saveFavoritePlayer(playerData, season)
+        }
+        dialog.show(supportFragmentManager, PlayerSearchDialogFragment.TAG)
+    }
+    
+    private fun saveFavoritePlayer(playerData: PlayerData, season: Int) {
+        favoritesManager.saveFavoritePlayer(playerData, season)
+        
+        Toast.makeText(
+            this,
+            "${playerData.player.name} set as your favorite player!",
+            Toast.LENGTH_SHORT
+        ).show()
+        
+        loadFavoritePlayer()
+    }
+    
+    private fun showRemovePlayerDialog() {
+        val favorite = favoritesManager.getFavoritePlayer() ?: return
+        
+        AlertDialog.Builder(this)
+            .setTitle("Remove Favorite Player")
+            .setMessage("Are you sure you want to remove ${favorite.playerData.player.name}?")
+            .setPositiveButton("Remove") { _, _ ->
+                removeFavoritePlayer()
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+    
+    private fun removeFavoritePlayer() {
+        favoritesManager.clearFavoritePlayer()
+        Toast.makeText(
+            this,
+            "Favorite player removed",
+            Toast.LENGTH_SHORT
+        ).show()
+        loadFavoritePlayer()
     }
     
     private fun showTeamSearchDialog() {

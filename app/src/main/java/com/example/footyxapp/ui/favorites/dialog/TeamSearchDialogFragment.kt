@@ -2,6 +2,8 @@ package com.example.footyxapp.ui.favorites.dialog
 
 import android.app.Dialog
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -34,8 +36,15 @@ class TeamSearchDialogFragment : DialogFragment() {
     
     private var onTeamAndLeagueSelected: ((TeamData, TeamLeagueData, Int) -> Unit)? = null
     
+    // Rate limiting and debouncing
+    private val searchHandler = Handler(Looper.getMainLooper())
+    private var searchRunnable: Runnable? = null
+    private var lastSearchQuery = ""
+    
     companion object {
         const val TAG = "TeamSearchDialog"
+        private const val SEARCH_DELAY_MS = 800L // Delay before executing search
+        private const val MIN_SEARCH_LENGTH = 2 // Minimum characters before searching
         
         fun newInstance(onTeamAndLeagueSelected: (TeamData, TeamLeagueData, Int) -> Unit): TeamSearchDialogFragment {
             return TeamSearchDialogFragment().apply {
@@ -56,7 +65,6 @@ class TeamSearchDialogFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
-        setupDialog()
         setupRecyclerViews()
         setupSearchBar()
         setupSeasonInput()
@@ -69,14 +77,14 @@ class TeamSearchDialogFragment : DialogFragment() {
     
     override fun onStart() {
         super.onStart()
-        dialog?.window?.setLayout(
-            WindowManager.LayoutParams.MATCH_PARENT,
-            WindowManager.LayoutParams.WRAP_CONTENT
-        )
-    }
-    
-    private fun setupDialog() {
-        dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog?.window?.apply {
+            setLayout(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+            // Remove default dialog margins
+            setBackgroundDrawableResource(android.R.color.transparent)
+        }
     }
     
     private fun setupRecyclerViews() {
@@ -118,17 +126,32 @@ class TeamSearchDialogFragment : DialogFragment() {
     private fun setupSearchBar() {
         binding.editSearchTeam.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            override fun afterTextChanged(s: Editable?) {
                 val query = s.toString().trim()
-                if (query.isNotEmpty()) {
-                    viewModel.searchTeams(query)
-                } else {
+                
+                // Cancel any pending search
+                searchRunnable?.let { searchHandler.removeCallbacks(it) }
+                
+                if (query.length < MIN_SEARCH_LENGTH) {
                     viewModel.clearSearchResults()
+                    lastSearchQuery = ""
+                    return
                 }
+                
+                // Skip if same query
+                if (query == lastSearchQuery) {
+                    return
+                }
+                
+                // Debounce: wait before executing search
+                searchRunnable = Runnable {
+                    lastSearchQuery = query
+                    viewModel.searchTeams(query)
+                }
+                searchHandler.postDelayed(searchRunnable!!, SEARCH_DELAY_MS)
             }
-            
-            override fun afterTextChanged(s: Editable?) {}
         })
     }
     
@@ -206,6 +229,8 @@ class TeamSearchDialogFragment : DialogFragment() {
     
     override fun onDestroyView() {
         super.onDestroyView()
+        // Clean up search handler
+        searchRunnable?.let { searchHandler.removeCallbacks(it) }
         _binding = null
     }
 }

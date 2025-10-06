@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.footyxapp.R
+import com.example.footyxapp.data.manager.FavoritesManager
 import com.example.footyxapp.data.model.PlayerData
 import com.example.footyxapp.data.model.PlayerProfile
 import com.example.footyxapp.data.model.Statistics
@@ -53,8 +54,28 @@ class Player : Fragment(), SearchableFragment {
         setupSeasonFunctionality()
         observeViewModel()
         
-        // Load Mbappé's data as example (ID: 278) - can be removed later
-        viewModel.loadPlayer(278, 2023)
+        // Try to load favorite player, otherwise load Mbappé as example
+        loadDefaultOrExamplePlayer()
+    }
+    
+    private fun loadDefaultOrExamplePlayer() {
+        val favoritesManager = FavoritesManager.getInstance(requireContext())
+        val favoritePlayer = favoritesManager.getFavoritePlayer()
+        
+        if (favoritePlayer != null) {
+            // Load favorite player
+            val playerId = favoritePlayer.playerData.player.id
+            val season = favoritePlayer.season
+            
+            // Update season input
+            binding.editSeason.setText(season.toString())
+            
+            // Load player statistics
+            viewModel.loadPlayer(playerId, season)
+        } else {
+            // Load Mbappé's data as example (ID: 278)
+            viewModel.loadPlayer(278, 2023)
+        }
     }
 
     private fun setupRecyclerView() {
@@ -74,12 +95,41 @@ class Player : Fragment(), SearchableFragment {
             clearSearchResults()
             hidePlayerDetails()
         }
+        
+        // Add real-time season validation
+        binding.editSeason.addTextChangedListener(object : android.text.TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val seasonText = s.toString().trim()
+                val season = seasonText.toIntOrNull()
+                
+                // Show error if season is not in valid range
+                if (seasonText.isNotEmpty() && (season == null || season !in 2021..2023)) {
+                    binding.editSeason.error = "Valid seasons: 2021-2023"
+                } else {
+                    binding.editSeason.error = null
+                }
+            }
+            override fun afterTextChanged(s: android.text.Editable?) {}
+        })
     }
 
     private fun onPlayerSelected(playerProfile: PlayerProfile) {
         val playerId = playerProfile.player.id
         val seasonText = binding.editSeason.text.toString().trim()
-        val season = seasonText.toIntOrNull() ?: 2023
+        val inputSeason = seasonText.toIntOrNull()
+        
+        // Validate season is in 2021-2023 range, default to 2023 if invalid
+        val season = if (inputSeason != null && inputSeason in 2021..2023) {
+            inputSeason
+        } else {
+            2023
+        }
+        
+        // Update season input if it was corrected
+        if (season != inputSeason) {
+            binding.editSeason.setText(season.toString())
+        }
         
         // Hide search results and show player details
         hideSearchResults()
