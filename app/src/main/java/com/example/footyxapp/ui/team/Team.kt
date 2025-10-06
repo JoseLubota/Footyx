@@ -52,8 +52,8 @@ class Team : Fragment(), SearchableFragment {
         setupSeasonFunctionality()
         observeViewModel()
         
-        // Load PSG as example (ID: 85) - can be removed later
-        loadExampleTeam()
+        // Load default favorite team if available, otherwise load example
+        loadDefaultOrExampleTeam()
     }
 
     override fun onSearch(query: String) {
@@ -104,12 +104,37 @@ class Team : Fragment(), SearchableFragment {
             clearSearchResults()
             hideTeamDetails()
         }
+        
+        // Add validation feedback for season input
+        binding.editSeason.addTextChangedListener(object : android.text.TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val seasonText = s.toString().trim()
+                val season = seasonText.toIntOrNull()
+                
+                // Visual feedback for invalid season
+                if (seasonText.isNotEmpty() && (season == null || season !in 2021..2023)) {
+                    binding.editSeason.error = "Valid seasons: 2021-2023"
+                } else {
+                    binding.editSeason.error = null
+                }
+            }
+            
+            override fun afterTextChanged(s: android.text.Editable?) {}
+        })
     }
 
     private fun onTeamSelected(teamData: TeamData) {
         currentTeamData = teamData
         val seasonText = binding.editSeason.text.toString().trim()
-        selectedSeason = seasonText.toIntOrNull() ?: 2023
+        val inputSeason = seasonText.toIntOrNull()
+        // Validate season: 2021-2023 only, default to 2023
+        selectedSeason = if (inputSeason != null && inputSeason in 2021..2023) {
+            inputSeason
+        } else {
+            2023
+        }
         
         // Hide search results
         hideSearchResults()
@@ -132,6 +157,31 @@ class Team : Fragment(), SearchableFragment {
         }
     }
 
+    private fun loadDefaultOrExampleTeam() {
+        // Try to load default favorite team
+        val favoritesManager = com.example.footyxapp.data.manager.FavoritesManager.getInstance(requireContext())
+        val favorite = favoritesManager.getFavoriteTeam()
+        
+        if (favorite != null) {
+            // Load the favorite team with the selected league
+            currentTeamData = favorite.teamData
+            selectedSeason = favorite.season
+            
+            // Load team statistics directly for the selected league
+            viewModel.loadTeamStatistics(
+                favorite.teamData.team.id,
+                favorite.leagueId,
+                favorite.season
+            )
+            
+            // Show team details immediately
+            showTeamDetails()
+        } else {
+            // Load PSG as example if no favorite team
+            loadExampleTeam()
+        }
+    }
+    
     private fun loadExampleTeam() {
         // Load PSG data as example
         currentTeamData = TeamData(

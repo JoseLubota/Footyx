@@ -1,79 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/selectableItemBackground"
-    android:padding="12dp">
+    android:layout_margin="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="#252525"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp">
 
-    <!-- Team Logo -->
-    <ImageView
-        android:id="@+id/image_team_logo"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:contentDescription="Team Logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <!-- Team Information -->
-    <LinearLayout
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="8dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_remove_team"
-        app:layout_constraintStart_toEndOf="@id/image_team_logo"
-        app:layout_constraintTop_toTopOf="parent">
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/imgTeamLogo"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:contentDescription="Team Logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_team_placeholder" />
 
         <TextView
-            android:id="@+id/text_team_name"
-            android:layout_width="match_parent"
+            android:id="@+id/txtTeamName"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
             android:maxLines="1"
+            android:ellipsize="end"
             android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textStyle="bold"
-            tools:text="Manchester United FC" />
+            app:layout_constraintEnd_toStartOf="@id/btnSetDefault"
+            app:layout_constraintStart_toEndOf="@id/imgTeamLogo"
+            app:layout_constraintTop_toTopOf="@id/imgTeamLogo"
+            tools:text="Paris Saint Germain" />
 
         <TextView
-            android:id="@+id/text_team_league"
-            android:layout_width="match_parent"
+            android:id="@+id/txtTeamCountry"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:ellipsize="end"
             android:maxLines="1"
-            android:textColor="@color/material_dynamic_neutral30"
+            android:ellipsize="end"
+            android:textColor="#AFAFAF"
             android:textSize="14sp"
-            tools:text="Premier League" />
+            app:layout_constraintEnd_toEndOf="@id/txtTeamName"
+            app:layout_constraintStart_toStartOf="@id/txtTeamName"
+            app:layout_constraintTop_toBottomOf="@id/txtTeamName"
+            tools:text="France" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/txtDefaultBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/type_badge_background"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:text="DEFAULT"
+            android:textColor="@color/primary_green"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/txtTeamName"
+            app:layout_constraintTop_toBottomOf="@id/txtTeamCountry"
+            tools:visibility="visible" />
 
-    <!-- Remove Button -->
-    <ImageButton
-        android:id="@+id/btn_remove_team"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="Remove from favorites"
-        android:src="@android:drawable/ic_menu_close_clear_cancel"
-        android:tint="@color/material_dynamic_neutral30"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageButton
+            android:id="@+id/btnSetDefault"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Set as default team"
+            android:src="@drawable/ic_star_outline"
+            android:tint="@color/primary_green"
+            app:layout_constraintBottom_toBottomOf="@id/imgTeamLogo"
+            app:layout_constraintEnd_toStartOf="@id/btnRemove"
+            app:layout_constraintTop_toTopOf="@id/imgTeamLogo" />
 
-    <!-- Divider Line -->
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0.5dp"
-        android:background="@color/material_dynamic_neutral30"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/image_team_logo" />
+        <ImageButton
+            android:id="@+id/btnRemove"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Remove from favorites"
+            android:src="@drawable/ic_delete"
+            android:tint="#FF5252"
+            app:layout_constraintBottom_toBottomOf="@id/imgTeamLogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/imgTeamLogo" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

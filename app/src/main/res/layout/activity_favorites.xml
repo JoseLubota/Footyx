@@ -180,13 +180,82 @@
                                 android:orientation="vertical"
                                 android:padding="16dp">
 
-                                <!-- Teams RecyclerView -->
-                                <androidx.recyclerview.widget.RecyclerView
+                                <!-- Favorite Team Display -->
+                                <androidx.constraintlayout.widget.ConstraintLayout
                                     android:id="@+id/recycler_view_favorite_teams"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:minHeight="120dp"
-                                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                                    android:visibility="gone"
+                                    android:padding="12dp">
+
+                                    <ImageView
+                                        android:id="@+id/imgFavoriteTeamLogo"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:contentDescription="Favorite Team Logo"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        tools:src="@drawable/ic_team_placeholder" />
+
+                                    <TextView
+                                        android:id="@+id/txtFavoriteTeamName"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="16dp"
+                                        android:layout_marginEnd="8dp"
+                                        android:maxLines="2"
+                                        android:ellipsize="end"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        app:layout_constraintEnd_toStartOf="@id/btnRemoveFavoriteTeam"
+                                        app:layout_constraintStart_toEndOf="@id/imgFavoriteTeamLogo"
+                                        app:layout_constraintTop_toTopOf="@id/imgFavoriteTeamLogo"
+                                        tools:text="Manchester United" />
+
+                                    <TextView
+                                        android:id="@+id/txtFavoriteTeamCountry"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="4dp"
+                                        android:maxLines="1"
+                                        android:ellipsize="end"
+                                        android:textColor="#AFAFAF"
+                                        android:textSize="14sp"
+                                        app:layout_constraintEnd_toEndOf="@id/txtFavoriteTeamName"
+                                        app:layout_constraintStart_toStartOf="@id/txtFavoriteTeamName"
+                                        app:layout_constraintTop_toBottomOf="@id/txtFavoriteTeamName"
+                                        tools:text="England" />
+
+                                    <TextView
+                                        android:id="@+id/txtFavoriteLeague"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="4dp"
+                                        android:maxLines="1"
+                                        android:ellipsize="end"
+                                        android:textColor="@color/primary_green"
+                                        android:textSize="13sp"
+                                        android:textStyle="bold"
+                                        app:layout_constraintEnd_toEndOf="@id/txtFavoriteTeamName"
+                                        app:layout_constraintStart_toStartOf="@id/txtFavoriteTeamName"
+                                        app:layout_constraintTop_toBottomOf="@id/txtFavoriteTeamCountry"
+                                        tools:text="Premier League" />
+
+                                    <ImageButton
+                                        android:id="@+id/btnRemoveFavoriteTeam"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:background="?attr/selectableItemBackgroundBorderless"
+                                        android:contentDescription="Remove favorite team"
+                                        android:src="@drawable/ic_delete"
+                                        android:tint="#FF5252"
+                                        app:layout_constraintBottom_toBottomOf="@id/imgFavoriteTeamLogo"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toTopOf="@id/imgFavoriteTeamLogo" />
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
 
                                 <!-- Empty State for Teams -->
                                 <TextView

@@ -67,8 +67,9 @@
                     android:text="2023"
                     android:textColor="@android:color/white"
                     android:textColorHint="#AFAFAF"
-                    android:hint="Enter season year"
+                    android:hint="Enter season (2021-2023)"
                     android:inputType="number"
+                    android:maxLength="4"
                     android:background="@drawable/edit_text_background" />
 
                 <Button
