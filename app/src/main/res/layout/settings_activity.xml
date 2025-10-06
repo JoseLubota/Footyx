@@ -58,7 +58,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="Back"
                     android:src="@drawable/ic_arrow_back"
-                    android:tint="@color/white" />
+                    app:tint="@color/white" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -219,7 +219,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="16dp"
                     android:src="@drawable/ic_favorite"
-                    android:tint="@color/black_FootyX" />
+                    app:tint="@color/black_FootyX" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -250,7 +250,7 @@
                     android:layout_height="24dp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/forward_arrow_svgrepo_com"
-                    android:tint="@color/black_FootyX" />
+                    app:tint="@color/black_FootyX" />
 
             </LinearLayout>
 
@@ -328,7 +328,7 @@
                     android:layout_height="24dp"
                     android:layout_marginEnd="16dp"
                     android:src="@drawable/fingerprint_thin_svgrepo_com"
-                    android:tint="@color/black_FootyX" />
+                    app:tint="@color/black_FootyX" />
 
                 <LinearLayout
                     android:layout_width="0dp"

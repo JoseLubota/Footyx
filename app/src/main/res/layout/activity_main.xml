@@ -83,7 +83,7 @@
                         android:layout_height="20dp"
                         android:layout_marginStart="12dp"
                         android:src="@drawable/ic_search"
-                        android:tint="@color/black_FootyX" />
+                        app:tint="@color/black_FootyX" />
 
                     <EditText
                         android:id="@+id/search_edit_text"
@@ -109,7 +109,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:padding="8dp"
                 android:src="@drawable/ic_settings"
-                android:tint="@color/white_FootyX"
+                app:tint="@color/white_FootyX"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

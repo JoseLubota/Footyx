@@ -62,7 +62,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/favorites_back"
                     android:src="@drawable/ic_arrow_back"
-                    android:tint="@color/white" />
+                    app:tint="@color/white" />
 
                 <TextView
                     android:layout_width="0dp"
