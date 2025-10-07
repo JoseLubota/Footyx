@@ -84,7 +84,7 @@ Favourites (For easy of accessibility)
 
 9. Create a file `app/config.properties` (or add to `local.properties`) and add:
 
-API_FOOTBALL_KEY={your_api_key_here}
+FOOTBALL_API_KEY=your_api_key_here
 
 USE_RAPIDAPI=false
 
