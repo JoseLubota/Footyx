@@ -10,7 +10,7 @@ on:
 # Where release is written
   push:
     branches:
-    - 'UI'
+    - 'main'
 
 jobs:
   build:
