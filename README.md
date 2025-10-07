@@ -90,6 +90,13 @@ USE_RAPIDAPI=false
 
 RAPIDAPI_HOST=v3.football.api-sports.io
 
+#### Alternatively:
+
+A Default API key can be used 
+```bash
+   57571f496885a4d2a16d964f42c29f46
+```
+
 10. Click ▶ **Run** to build and launch the app in the emulator or a connected Android device.
 
 ### Option 2: Install on Android device
