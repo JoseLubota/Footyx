@@ -69,7 +69,7 @@
 
 1. Download the **FootyX APK** file here:
 
-      [![Download APK](https://img.shields.io/badge/Download-APK-green?style=for-the-badge&logo=android&logoColor=white)](https://github.com/YourUsername/Footyx/releases/latest/download/footyx.apk)
+      [![Download APK](https://img.shields.io/badge/Download-APK-green?style=for-the-badge&logo=android&logoColor=white)](https://github.com/JoseLubota/Footyx/releases/tag/V.0.1.0)
 
 2. Transfer it to youre Android device via:
    * USB cable transfer
@@ -96,7 +96,7 @@
 
 [![Room](https://img.shields.io/badge/Room-0078D4?style=for-the-badge&logo=sqlite&logoColor=white)](https://developer.android.com/training/data-storage/room)
 
-[![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com)
+[![Firebase](https://img.shields.io/badge/Firebase-DD2C00?style=for-the-badge&logo=firebase&logoColor=White)](https://firebase.google.com)
 
 ---
 
