@@ -10,10 +10,31 @@
 ## Overview
 
 
+
 ---
 
 ## Features
 
+Functional Authentication
+* User registration
+* Log in
+* Log out
+
+Search Functionality
+* Player search
+* Team search
+* League search
+* Match search
+
+Stats
+* Player stats
+* Team stats
+* Leagues stats
+* Match stats
+
+Favourites (For easy of accessibility)
+* Favourite Teams 
+* Favourite Players
 
 ---
 
@@ -63,7 +84,19 @@
 
 7. Wait for **Gradle** to finish syncing dependencies (this may take a few minutes).
 
-8. Once sync completes, click ▶ **Run** to build and launch the app in the emulator or a connected Android device.
+#### This project needs an API key from **API-Football** (Api-Sports). You can get one at https://www.api-football.com/
+
+8. Sign up at **api-football.com** / api-sports.io → **Dashboard** → **My Access** / API keys → copy your key.
+
+9. Create a file `app/config.properties` (or add to `local.properties`) and add:
+
+API_FOOTBALL_KEY={your_api_key_here}
+
+USE_RAPIDAPI=false
+
+RAPIDAPI_HOST=v3.football.api-sports.io
+
+10. Click ▶ **Run** to build and launch the app in the emulator or a connected Android device.
 
 ### Option 2: Install on Android device
 
@@ -83,11 +116,6 @@
 
 ---
 
-## Usage Instructions
-
-
----
-
 ## Architecture
 
 [![Android Studio](https://img.shields.io/badge/Android%20Studio-3DDC84?style=for-the-badge&logo=androidstudio&logoColor=white)](https://developer.android.com/studio)
@@ -97,6 +125,13 @@
 [![Room](https://img.shields.io/badge/Room-0078D4?style=for-the-badge&logo=sqlite&logoColor=white)](https://developer.android.com/training/data-storage/room)
 
 [![Firebase](https://img.shields.io/badge/Firebase-DD2C00?style=for-the-badge&logo=firebase&logoColor=White)](https://firebase.google.com)
+
+---
+
+## Help
+#### Common Issues
+
+After favouriting a team and/or player in settings → preferences → favourites, the teams and/or player will remain favourited until the user navigates back to the favourites section and either changes their previously favourited teams and/or player or removes them.
 
 ---
 
