@@ -7,12 +7,6 @@
 
 ---
 
-## Overview
-
-
-
----
-
 ## Features
 
 Functional Authentication
