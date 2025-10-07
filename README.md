@@ -82,13 +82,9 @@ Favourites (For easy of accessibility)
 
 8. Sign up at **api-football.com** / api-sports.io → **Dashboard** → **My Access** / API keys → copy your key.
 
-9. Create a file `app/config.properties` (or add to `local.properties`) and add:
+9. Create a file `local.properties` in the project root if it hasn't been created and add:
 
 FOOTBALL_API_KEY=your_api_key_here
-
-USE_RAPIDAPI=false
-
-RAPIDAPI_HOST=v3.football.api-sports.io
 
 #### Alternatively:
 
