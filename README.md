@@ -1,9 +1,8 @@
 # Footyx
 [![Android](https://img.shields.io/badge/Platform-Android-green?logo=android)](https://developer.android.com)
 [![Kotlin](https://img.shields.io/badge/Language-Kotlin-7f52ff?logo=kotlin&logoColor=white)](https://kotlinlang.org)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](#license)
 
-## A modern Android app for football fans — live scores, fixtures, teams, player stats, and personalized notifications.
+### A modern Android app for football fans — live scores, fixtures, teams, player stats, and personalized notifications.
 
 ---
 
